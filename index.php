@@ -7,3 +7,5 @@
  */
 
 echo 'hola mundo';
+
+echo 'Hola amigos';
