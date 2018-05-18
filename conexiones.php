@@ -75,13 +75,9 @@ class Conexiones {
                 . "'$surnames','$address','$location','$cp','$birthDate')";
         
         if($result = $this->conexion->query($consult)){
-            echo '<script type="text/javascript">alert("Enhorabuena!, se ha '
-            . 'completado el registro");window.location="login.php";</script>';
+            return true;
         }else{
-            $this->disconect();
-            echo '<script type="text/javascript">alert("No se ha podido '
-            . 'completar el registro!, vuelva a intentarlo");'
-            . 'window.location="registro.php";</script>';
+            return false;
         }
         $this->disconect();
     }
@@ -95,11 +91,9 @@ class Conexiones {
                 . "localidad='$location',cp='$cp',fechnac='$birthDate'"
                 . " where correo='$mail'";
         if($result = $this->conexion->query($consult)){
-            echo '<script type="text/javascript">alert("Perfil actualizado'
-            . ' correctamente");window.location="login.php";</script>';
+            return true;
         }else{
-            echo '<script type="text/javascript">alert("Error al actualizar '
-            . 'el perfil!");window.location="login.php";</script>';
+            return false;
         }
     }
     
@@ -108,11 +102,9 @@ class Conexiones {
         $this->conect();
         $consult = "update usuarios set correo='$newMail' where correo='$oldMail'";
         if($result = $this->conexion->query($consult)){
-            echo '<script type="text/javascript">alert("Correo actualizado'
-            . ' correctamente");window.location="login.php";</script>';
+            return true;
         }else{
-            echo '<script type="text/javascript">alert("Error al actualizar '
-            . 'el correo nuevo!");window.location="login.php";</script>';
+            return false;
         }
     }
 
@@ -181,5 +173,58 @@ class Conexiones {
         $data = $result->fetch_array();
         $this->disconect();
         return $data;
+    }
+    
+    //Modificar la lista de deseos
+    function modifiListaDeseosUser($id,$mail,$option){
+        $this->conect();
+        $consult = "select listades from usuarios where correo='$mail'";
+        $result = $this->conexion->query($consult);
+        $data = $result->fetch_array();
+        
+        $lista = json_decode($data);
+        
+        if($option === 'add'){
+            array_push($lista, $id);
+            $listJSON = json_encode($lista);
+            $consult = "update usuarios set listades='$listJSON' where "
+                    . "correo='$mail'";
+            if($result = $this->conexion->query($consult)){
+                return true;
+            }else{
+                return false;
+            }
+        }else if($option === 'del'){
+            array_push($lista, $id);
+            for($i=0;$i<$lista.length;$i++){
+                if($lista[$i] == $id){
+                    unset($lista[$i]);
+                }
+            }
+            $listJSON = json_encode($lista);
+            $consult = "update usuarios set listades='$listJSON' where "
+                    . "correo='$mail'";
+            if($result = $this->conexion->query($consult)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+    }
+    
+    //Sacar lista de deseos de un user
+    function getListaDeseosUser($mail){
+        $this->conect();
+        $consult = "select listades from usuarios where correo='$mail'";
+        $result = $this->conexion->query($consult);
+        
+        if($result->num_rows == 0){
+            return false;
+        }else{
+            $data = $result->fetch_array();
+            $lista = json_decode($data[0]);
+            return $lista;
+        }
     }
 }
