@@ -1,4 +1,5 @@
 #lista-admin legend,
+#lista-admin #opciones-admin span,
 #lista-admin #articulos-admin th.campoArticulo,
 #lista-admin #articulos-admin td.campoArticulo {
     font-family: proxima-nova,arial,sans-serif;
@@ -7,6 +8,19 @@
 #lista-admin {
     width: 80%;
     margin: 0 auto;
+}
+
+#lista-admin #opciones-admin {
+    margin-bottom: 20px;
+}
+
+#lista-admin #opciones-admin span {
+    margin-right: 20px;
+    padding: 5px 15px;
+    color: #ff5400;
+    background-color: #ffffff;
+    border: 2px solid #ff5400;
+    border-radius: 4px;
 }
 
 #lista-admin legend {
@@ -36,6 +50,10 @@
     font-weight: 700;
     color: #ffffff;
     background-color: #ff5400;
+}
+
+#lista-admin #articulos-admin td.campoArticulo.imagen {
+    border: 0;
 }
 
 #lista-admin #articulos-admin td.campoArticulo.boton {
