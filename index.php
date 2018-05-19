@@ -1,17 +1,11 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-echo 'hola mundo';
-
-echo 'Hola amigos';
-
-echo 'Was Smith';
-
-echo 'Was Smith';
-
-echo 'Spyro';
+<!DOCTIPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>VillaGaming - Inicio</title>
+    <link rel="stylesheet" type="text/css" href="css/global.css">
+</head>
+<body>
+    <h1>Soy el index</h1>
+</body>
+</html>
