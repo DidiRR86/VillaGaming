@@ -5,12 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 echo 'hola mundo';
-
 echo 'Hola amigos';
-
 echo 'Was Smith';
-
 echo 'Was Smith';
 echo 'Spyro';
