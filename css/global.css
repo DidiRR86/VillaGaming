@@ -1,3 +1,33 @@
+/*Test Only*/
 body {
-    background-color: #80dfff;
+    background-color: #ffffff;
+}
+
+/*Real Code*/
+#lista-admin {
+    width: 80%;
+    margin: 0 auto;
+}
+#lista-admin #articulos-admin {  width: 100%;
+}
+
+
+#lista-admin #articulos-admin th.campoArticulo {
+    font-family: proxima-nova,arial,sans-serif;
+}
+
+#lista-admin #articulos-admin td.campoArticulo {
+    font-family: proxima-nova,arial,sans-serif;
+}
+
+#lista-admin #articulos-admin td.campoArticulo.boton {
+    display: inline-block;
+    margin: 10px;
+    padding: 5px 15px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #ff5400;
+    border-radius: 3px;
 }
