@@ -17,6 +17,7 @@
 #lista-admin #opciones-admin span {
     margin-right: 20px;
     padding: 5px 15px;
+    font-weight: 700;
     border-radius: 3px;
 }
 
@@ -29,6 +30,7 @@
 #lista-admin #opciones-admin .inverse {
     color: #ffffff;
     background-color: #ff5400;
+    border: 2px solid #000000;
 }
 
 #lista-admin legend {
@@ -52,6 +54,7 @@
 }
 
 #lista-admin #articulos-admin th.campoArticulo {
+    max-width: 65px;
     margin: 10px;
     padding: 5px 15px;
     font-size: 13px;
@@ -69,6 +72,7 @@
     margin: 10px;
     padding: 5px 15px;
     background-color: #ff5400;
+    border: 1.5px solid;
     border-radius: 3px;
 }
 
