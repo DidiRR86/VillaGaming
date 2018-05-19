@@ -17,10 +17,18 @@
 #lista-admin #opciones-admin span {
     margin-right: 20px;
     padding: 5px 15px;
+    border-radius: 3px;
+}
+
+#lista-admin #opciones-admin .normal {
     color: #ff5400;
     background-color: #ffffff;
     border: 2px solid #ff5400;
-    border-radius: 4px;
+}
+
+#lista-admin #opciones-admin .inverse {
+    color: #ffffff;
+    background-color: #ff5400;
 }
 
 #lista-admin legend {

@@ -8,9 +8,10 @@
 <body>
     <div id="lista-admin">
         <div id="opciones-admin">
-            <span>Artículos</span>
-            <span>Códigos Promoción</span>
-            <span>Usuarios</span>
+            <span class="inverse">Artículos</span>
+            <span class="normal">Códigos Promoción</span>
+            <span class="normal">Usuarios</span>
+            <span class="inverse">Agregar</span>
         </div>
         <fieldset>
             <legend>Inventario</legend>
