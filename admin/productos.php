@@ -15,7 +15,11 @@
             <span class="inverse">Artículos</span>
             <span class="normal">Códigos Promoción</span>
             <span class="normal">Usuarios</span>
-            <span class="inverse">Agregar</span>
+            <?php
+            print('<a href="admin-productos.php?accion=agregar">
+                <span class="inverse">Agregar</span>
+            </a>');
+            ?>
         </div>
         <fieldset>
             <legend>Inventario</legend>
