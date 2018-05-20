@@ -27,4 +27,11 @@ class Consultas
 
         return $productos;
     }
+
+    function eliminar($idproducto) {
+        $consulta = 'DELETE FROM productos WHERE idproducto = "'.$idproducto.'"';
+        if($this->conexion->query($consulta)) {
+            return true;
+        }
+    }
 }

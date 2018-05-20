@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>VillaGaming - Administrador - Inventario</title>
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
     <link rel="stylesheet" type="text/css" href="../css/admin-list.css">
 </head>
 <body>
@@ -48,9 +49,11 @@
                     print('<td class="campoArticulo"><a href="'.$producto['youtube'].'" target="_blank"><button type="button">ver video</button></a></td>');
                     print('<td class="campoArticulo">'.$producto['compras'].'</td>');
                     print('<td class="campoArticulo">'.$producto['fechpubli'].'</td>');
-                    print('<td class="campoArticulo boton"><span>Modificar</span></span></td>');
-                    print('<td class="campoArticulo boton"><span>Eliminar</span></span></td>');
-                    print('</tr>');
+                    print('<td class="campoArticulo boton"><span>Modificar</span></td>');
+                    print('<td class="campoArticulo boton">
+                            <a href="admin-productos.php?accion=eliminar&idproducto='.$producto['idproducto'].'">
+                                <span>Eliminar</span>
+                            </a></td></tr>');
                 }
                 ?>
             </table>
