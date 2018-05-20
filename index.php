@@ -6,6 +6,14 @@
     <link rel="stylesheet" type="text/css" href="css/global.css">
 </head>
 <body>
-    <h1>Soy el index</h1>
+<div class="contenido">
+    <header>
+        <img src="img/Gamers-Rising.png"/>
+        <!--<img src="/../../img/header.jpg">-->
+    </header>
+    <div class="contenedor">
+        <h1>Soy el index</h1>
+    </div>
+</div>
 </body>
 </html>
