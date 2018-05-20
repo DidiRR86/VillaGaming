@@ -67,9 +67,14 @@
     border: 0;
 }
 
+#lista-admin #articulos-admin td.campoArticulo.imagen img {
+    width: 75.6px;
+    height: 105.16px;
+}
+
 #lista-admin #articulos-admin td.campoArticulo.boton {
     display: block;
-    margin: 10px;
+    margin: 15px 10px 20px 10px;
     padding: 5px 15px;
     background-color: #ff5400;
     border: 1.5px solid;
