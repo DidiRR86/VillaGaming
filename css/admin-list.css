@@ -2,11 +2,13 @@
 #lista-admin #opciones-admin span,
 #lista-admin #articulos-admin th.campoArticulo,
 #lista-admin #articulos-admin td.campoArticulo,
-#agregar-admin legend {
+#agregar-admin legend,
+#agregar-admin #producto-admin td.nombreArticulo {
     font-family: proxima-nova,arial,sans-serif;
 }
 
-#lista-admin {
+#lista-admin,
+#agregar-admin {
     width: 80%;
     margin: 0 auto;
 }
@@ -48,11 +50,28 @@
     width: 100%;
 }
 
+#agregar-admin #producto-admin {
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
 #lista-admin #articulos-admin th.campoArticulo,
-#lista-admin #articulos-admin td.campoArticulo {
+#lista-admin #articulos-admin td.campoArticulo,
+#agregar-admin #producto-admin td.campoArticulo {
     text-align: center;
     border: 1px solid;
     border-radius: 3px;
+}
+
+#agregar-admin #producto-admin td.campoArticulo {
+    padding: 10px;
+}
+
+#agregar-admin #producto-admin td.nombreArticulo {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ff5400;
 }
 
 #lista-admin #articulos-admin th.campoArticulo {
