@@ -8,12 +8,24 @@
 <body>
     <?php
     include '../classes/consultas.php';
+    $accion = $_REQUEST['accion'];
 
-    $idproducto = $_REQUEST['idproducto'];
-    $consulta = new Consultas();
+    if($accion == "agregar") {
+        print('<div id="agregar-admin">');
+        print('<fieldset>');
+        print('<legend>Agregar Producto</legend>');
+        print('<table id="producto-admin">');
+        print('</table>');
+        print('</fieldset>');
+    } elseif($accion == "modificar") {
 
-    $consulta->eliminar($idproducto);
-    header("location:productos.php");
+    } elseif($accion == "eliminar") {
+        $idproducto = $_REQUEST['idproducto'];
+        $consulta = new Consultas();
+
+        $consulta->eliminar($idproducto);
+        header("location:productos.php");
+    }
     ?>
 </body>
 </html>

@@ -1,7 +1,8 @@
 #lista-admin legend,
 #lista-admin #opciones-admin span,
 #lista-admin #articulos-admin th.campoArticulo,
-#lista-admin #articulos-admin td.campoArticulo {
+#lista-admin #articulos-admin td.campoArticulo,
+#agregar-admin legend {
     font-family: proxima-nova,arial,sans-serif;
 }
 
@@ -33,7 +34,8 @@
     border: 2px solid #000000;
 }
 
-#lista-admin legend {
+#lista-admin legend,
+#agregar-admin legend {
     padding: 5px 15px;
     font-weight: 900;
     text-transform: uppercase;
