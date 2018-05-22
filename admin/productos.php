@@ -5,6 +5,8 @@
     <title>VillaGaming - Administrador - Inventario</title>
     <link rel="stylesheet" type="text/css" href="../css/global.css">
     <link rel="stylesheet" type="text/css" href="../css/admin-list.css">
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="../js/admin-list.js" type="text/javascript"></script>
 </head>
 <body>
     <?php
