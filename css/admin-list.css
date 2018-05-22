@@ -93,6 +93,11 @@
     height: 105.16px;
 }
 
+#lista-admin #articulos-admin td.campoArticulo.active {
+    background-color: #cccccc;
+
+}
+
 #lista-admin #articulos-admin td.campoArticulo.boton {
     display: block;
     margin: 15px 10px 20px 10px;
