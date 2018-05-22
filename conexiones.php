@@ -27,7 +27,8 @@ class Conexiones {
     //Logear usuario.
     function loginUsers($usu, $pass){
         $this->conect();
-        $consult = "select * from administradores where usuario='$usu' and contrasena='$pass'";
+        $consult = "select * from administradores where usuario='$usu' "
+                . "and contrasena='$pass'";
         $result = $this->conexion->query($consult);
         $value = $result->fetch_array();
         
@@ -35,7 +36,8 @@ class Conexiones {
             $_SESSION['loginAdmin'] = $usu;
             header('Location:index.php');
         }else{
-            $consult = "select * from usuarios where usuario='$usu' and contrasena='$pass'";
+            $consult = "select * from usuarios where usuario='$usu' "
+                    . "and contrasena='$pass'";
             $result = $this->conexion->query($consult);
             if($result->num_rows != 0){
                 $data = $result->fetch_array();
