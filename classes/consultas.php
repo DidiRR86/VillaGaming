@@ -1,11 +1,4 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: Guzman
- * Date: 20/05/2018
- * Time: 17:18
- */
 class Consultas
 {
     private $consultas;
@@ -26,6 +19,12 @@ class Consultas
         }
 
         return $productos;
+    }
+
+    function agregar($idproducto,$nombre,$descripcion,$precio,$requisitos,$plataforma,$genero,$youtube,$imagen,$compras,$fechpubli) {
+        $consulta = "INSERT INTO productos(CODIGOJUEGO,NOMBREJUEGO,PRECIO,ANYO,PLATAFORMA,CANTIDAD,IMAGEN) "
+            . "VALUES('$idproducto','$nombre',$descripcion,$precio,'$requisitos',$plataforma,'$genero','$youtube','$imagen','$compras','$fechpubli')";
+        $this->resultado = $this->conexion->query($consulta);
     }
 
     function eliminar($idproducto) {
