@@ -24,7 +24,7 @@
         print('<tr><td class="nombreArticulo">Descripcion</td>');
         print('<td class="campoArticulo"><textarea rows="4" cols="50">Descripción del producto</textarea></td></tr>');
         print('<tr><td class="nombreArticulo">Precio</td>');
-        print('<td class="campoArticulo"><input type="text"/> € (Euros)</td></tr>');
+        print('<td class="campoArticulo"><input type="text"/><span>€ (Euros)</span></td></tr>');
         print('<tr><td class="nombreArticulo">Requisitos</td>');
         print('<td class="campoArticulo"><textarea rows="4" cols="50">Requisitos del producto</textarea></td></tr>');
         print('<tr><td class="nombreArticulo">Plataforma</td>');

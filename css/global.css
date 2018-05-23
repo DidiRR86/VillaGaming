@@ -1,4 +1,4 @@
-body {
+/*body {
     height: 100%;
     background-color: #ffffff;
     background-image: url("../img/backgroud-gaming.png");
@@ -6,6 +6,10 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 100% 100%;
+}*/
+
+legend, span, th, td {
+    font-family: proxima-nova,arial,sans-serif;
 }
 
 a:link {
