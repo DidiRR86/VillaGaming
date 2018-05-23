@@ -1,13 +1,3 @@
-#lista-admin legend,
-#lista-admin #opciones-admin span,
-#lista-admin #articulos-admin th.campoArticulo,
-#lista-admin #articulos-admin td.campoArticulo,
-#agregar-admin legend,
-#agregar-admin #agregar-options span,
-#agregar-admin #producto-admin td.nombreArticulo {
-    font-family: proxima-nova,arial,sans-serif;
-}
-
 #lista-admin,
 #agregar-admin {
     width: 80%;
@@ -32,10 +22,17 @@
     border: 2px solid #ff5400;
 }
 
+#lista-admin #opciones-admin .normal.active {
+    color: #ffffff;
+    background-color: #ff5400;
+    border: 2px solid #000000;
+}
+
 #lista-admin #opciones-admin .inverse,
 #agregar-admin #agregar-options .inverse {
     color: #ffffff;
     background-color: #ff5400;
+    border: 2px solid #ffffff;
 }
 
 #lista-admin #opciones-admin .inverse {
@@ -80,6 +77,11 @@
     color: #ff5400;
 }
 
+#agregar-admin #producto-admin td.campoArticulo span {
+    margin-left: 8px;
+    font-size: 14px;
+}
+
 #lista-admin #articulos-admin th.campoArticulo {
     max-width: 65px;
     margin: 10px;
@@ -99,9 +101,13 @@
     height: 105.16px;
 }
 
-#lista-admin #articulos-admin td.campoArticulo.active {
+#lista-admin #articulos-admin td.campoArticulo.active,
+#agregar-admin #producto-admin td.campoArticulo.active {
     background-color: #ffcc99;
+}
 
+#agregar-admin #producto-admin td.campoArticulo.intensity {
+    background-color: #ff7733;
 }
 
 #lista-admin #articulos-admin td.campoArticulo.boton {

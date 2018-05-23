@@ -19,7 +19,7 @@
             <span class="normal">Usuarios</span>
             <?php
             print('<a href="admin-productos.php?accion=agregar">
-                <span class="inverse">Agregar</span>
+                <span class="normal">Agregar</span>
             </a>');
             ?>
         </div>
