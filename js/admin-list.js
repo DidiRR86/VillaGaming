@@ -26,10 +26,16 @@ $(document).ready(function() {
     $('#agregar-admin #producto-admin td.campoArticulo textarea').on('focusin', function(e) {
         $(e.currentTarget).parent().addClass('intensity');
     });
+    $('#agregar-admin #producto-admin td.campoArticulo select').on('focusin', function(e) {
+        $(e.currentTarget).parent().addClass('intensity');
+    });
     $('#agregar-admin #producto-admin td.campoArticulo input').on('focusout', function(e) {
         $(e.currentTarget).parent().removeClass('intensity');
     });
     $('#agregar-admin #producto-admin td.campoArticulo textarea').on('focusout', function(e) {
+        $(e.currentTarget).parent().removeClass('intensity');
+    });
+    $('#agregar-admin #producto-admin td.campoArticulo select').on('focusout', function(e) {
         $(e.currentTarget).parent().removeClass('intensity');
     });
 

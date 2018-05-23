@@ -20,17 +20,34 @@
         print('<legend>Agregar Producto</legend>');
         print('<table id="producto-admin">');
         print('<tr><td class="nombreArticulo">Nombre</td>');
-        print('<td class="campoArticulo"><input type="text"/></td></tr>');
+        print('<td class="campoArticulo"><input type="text" name="nombre"/></td></tr>');
         print('<tr><td class="nombreArticulo">Descripcion</td>');
-        print('<td class="campoArticulo"><textarea rows="4" cols="50">Descripción del producto</textarea></td></tr>');
+        print('<td class="campoArticulo"><textarea rows="4" cols="50" name="descripcion">Descripción del producto</textarea></td></tr>');
         print('<tr><td class="nombreArticulo">Precio</td>');
-        print('<td class="campoArticulo"><input type="text"/><span>€ (Euros)</span></td></tr>');
+        print('<td class="campoArticulo"><input type="text" name="precio"/><span>€ (Euros)</span></td></tr>');
         print('<tr><td class="nombreArticulo">Requisitos</td>');
-        print('<td class="campoArticulo"><textarea rows="4" cols="50">Requisitos del producto</textarea></td></tr>');
+        print('<td class="campoArticulo"><textarea rows="4" cols="50" name="requisitos">Requisitos del producto</textarea></td></tr>');
         print('<tr><td class="nombreArticulo">Plataforma</td>');
-        print('<td class="campoArticulo"><input type="text"/></td></tr>');
+        print('<td class="campoArticulo">
+                    <select name="plataforma">
+                        <option value="PC">PC</option>
+                        <option value="PS4">PS4</option>
+                        <option value="Xbox One">Xbox One</option>
+                        <option value="Nintendo Switch">Nintendo Switch</option>
+                    </select>
+               </td></tr>');
         print('<tr><td class="nombreArticulo">Genero</td>');
-        print('<td class="campoArticulo"><input type="text"/></td></tr>');
+        print('<td class="campoArticulo">
+                    <select name="genero">
+                        <option value="Accion">Accion</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="Carreras">Carreras</option>
+                        <option value="Plataformas">Plataformas</option>
+                        <option value="RPG">Nintendo Switch</option>
+                        <option value="Shooter">Shooter</option>
+                        <option value="Terror">Terror</option>
+                    </select>
+               </td></tr>');
         print('<tr><td class="nombreArticulo">URL YouTube</td>');
         print('<td class="campoArticulo"><input type="text"/></td></tr>');
         print('<tr><td class="nombreArticulo">Fecha Publicación</td>');
