@@ -21,9 +21,9 @@ class Consultas
         return $productos;
     }
 
-    function agregar($idproducto,$nombre,$descripcion,$precio,$requisitos,$plataforma,$genero,$youtube,$imagen,$compras,$fechpubli) {
-        $consulta = "INSERT INTO productos(CODIGOJUEGO,NOMBREJUEGO,PRECIO,ANYO,PLATAFORMA,CANTIDAD,IMAGEN) "
-            . "VALUES('$idproducto','$nombre',$descripcion,$precio,'$requisitos',$plataforma,'$genero','$youtube','$imagen','$compras','$fechpubli')";
+    function agregar($nombre,$descripcion,$precio,$requisitos,$plataforma,$genero,$youtube,$imagen,$compras,$dateBD) {
+        $consulta = "INSERT INTO productos(nombre,descripcion,precio,requisitos,plataforma,genero,youtube,imagen,compras,fechpubli) "
+            . "VALUES('$nombre','$descripcion','$precio','$requisitos','$plataforma','$genero','$youtube','$imagen','$compras','$dateBD')";
         $this->resultado = $this->conexion->query($consulta);
     }
 

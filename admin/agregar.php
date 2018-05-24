@@ -6,14 +6,18 @@ if(!isset($_SESSION["admin"])) {
     header("location:index.php");
 }*/
 
-$codigo = $_REQUEST["codigo"];
 $nombre = $_REQUEST["nombre"];
-$precio = $_REQUEST["precio"];
-$anyo = $_REQUEST["anyo"];
+$descripcion = $_REQUEST["descripcion"];
+$precioStr = $_REQUEST["precio"];
+$precio = (int)$precioStr;
+$requisitos = $_REQUEST["requisitos"];
 $plataforma = $_REQUEST["plataforma"];
-$cantidad = $_REQUEST["cantidad"];
-$imagen;
-
+$genero = $_REQUEST["genero"];
+$youtube = $_REQUEST["youtube"];
+$imagen = "something";
+$compras = 0;
+$fechpubli = new DateTime($_REQUEST["fechpubli"]);
+$dateBD = $fechpubli->format('d/m/Y');
 
 /*$caratula;
 if (is_uploaded_file($_FILES['caratula']['tmp_name'])) {
@@ -31,6 +35,6 @@ if (is_uploaded_file($_FILES['caratula']['tmp_name'])) {
 
 $consulta = new Consultas();
 
-$consulta->agregar($idproducto,$nombre,$descripcion,$precio,$requisitos,$plataforma,$genero,$youtube,$imagen,$compras,$fechpubli);
-header("location:articulos.php");
+$consulta->agregar($nombre,$descripcion,(int)$precio,$requisitos,$plataforma,$genero,$youtube,$imagen,$compras,$dateBD);
+header("location:productos.php");
 ?>

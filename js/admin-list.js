@@ -38,11 +38,4 @@ $(document).ready(function() {
     $('#agregar-admin #producto-admin td.campoArticulo select').on('focusout', function(e) {
         $(e.currentTarget).parent().removeClass('intensity');
     });
-
-    $('#agregar-admin #agregar-options .inverse').on('mouseenter', function(e) {
-        $(e.currentTarget).css('border', '2px solid #000000');
-    });
-    $('#agregar-admin #agregar-options .inverse').on('mouseleave', function(e) {
-        $(e.currentTarget).css('border', '2px solid #ffffff');
-    });
 });

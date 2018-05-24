@@ -49,17 +49,15 @@
                     </select>
                </td></tr>');
         print('<tr><td class="nombreArticulo">URL YouTube</td>');
-        print('<td class="campoArticulo"><input type="text"/></td></tr>');
+        print('<td class="campoArticulo"><input type="text" name="youtube"/></td></tr>');
         print('<tr><td class="nombreArticulo">Fecha Publicación</td>');
-        print('<td class="campoArticulo"><input type="text"/></td></tr>');
+        print('<td class="campoArticulo"><input type="date" name="fechpubli"/></td></tr>');
         print('</table>');
         print('<div id="agregar-options">');
-        print('<a href="productos.php">
-                <span class="inverse">Cancelar</span>
-            </a>');
-        print('<a href="#">
-                <span class="inverse">Agregar</span>
-            </a></div>');
+        print('<button type="button">
+                <a href="productos.php">Cancelar</a>
+               </button>');
+        print('<input type="submit" value="Agregar"/>');
         print('</fieldset>');
         print('</form>');
         print('</div>');

@@ -129,3 +129,8 @@
     text-align: center;
     margin: 20px;
 }
+
+#agregar-admin #agregar-options button,
+#agregar-admin #agregar-options input {
+    margin: 0 10px;
+}
