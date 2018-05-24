@@ -106,7 +106,7 @@
             </form>
           </div>
       </div>
-  <script type="text/javascript" src="jquery.js"></script>
+ <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="materialize/js/bin/materialize.min.js"></script>
 <script type="text/javascript">
     $(function(){

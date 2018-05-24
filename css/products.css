@@ -16,8 +16,5 @@ and open the template in the editor.
 
 .product{
     display:inline-table;
-    position:relative;
     width:23%;
-    height:10%;
-    margin-bottom:3pt;
 }
