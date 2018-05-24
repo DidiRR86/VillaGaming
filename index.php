@@ -10,11 +10,8 @@
 <head>
     <meta charset="UTF-8"/>
     <title>VillaGaming - Inicio</title>
-    <link rel="stylesheet" type="text/css" href="css/global.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="materialize/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
@@ -35,29 +32,83 @@
       <li><a href="#!">Estrategia</a></li>
       <li><a href="#!">Indi</a></li>
     </ul>
-<nav id="nav-bar">
-    <div class="nav-wrapper" style="display: inline-block;">
+<nav id="nav-bar" style="width: 80%;margin: 0 auto;margin-top: 10%;">
+    <div class="nav-wrapper">
       <ul class="left hide-on-med-and-down">
       <!-- Dropdown Trigger -->
-      <li> <a class="dropdown-trigger" href="products.php" data-target="dropdown1"><i class="material-icons right">Genero</i></a></li>
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><i class="material-icons right">Plataforma</i></a></li>
+      <li> <a class="dropdown-trigger" href="products.php" data-target="dropdown1">
+              Genero<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">
+              Plataforma<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
-  </div>
-    <div style="display: inline-block;margin-left: 40%;">
-        <span><?php 
+    <ul class="right hide-on-med-and-down">
+        <?php 
         if(isset($_SESSION['loginUsu'])){
-            echo $_SESSION['loginUsu']."<br />";
-            ?><a href='options.php?option=close'>Cerrar sesion</a>
+            echo "<li>".$_SESSION['loginUsu']."</li>";
+            ?><li><a href='options.php?option=close'><ing src="img/buttoms/salida.png"</a><li>
             <?php
         }else{
-            ?><a href='login.php'>Login <img src="img/buttons/login.png"></a>
+            ?><li><a href='login.php'>Login</a></li>
+            <li><a href="register.php">Resgistrarse</a></li>
             <?php
         }
-        ?></span>
-        <a href="register.php">Resgistrarse</a>
-    </div>
+        ?>  
+    </ul>
+    <ul class="center hide-on-med-and-down" style="margin-left: 40%;">
+      <!-- Dropdown Trigger -->
+      <li><input type="search" style="background-color: white;
+        border-radius: 20px;
+        width: 125%;" placeholder="Buscar" /></li>
+    </ul>
+  </div>
+    
+    
   
 </nav>
+    
+<div id="content" style="width: 73%;
+margin: 0 auto;
+margin-top: 3%;">
+
+    <div class="slider">
+        <ul class="slides">
+          <li>
+            <img src="img/portada/img1.jpg"> <!-- random image -->
+            <div class="caption center-align">
+              
+            </div>
+          </li>
+          <li>
+            <img src="img/portada/img2.jpg"> <!-- random image -->
+            <div class="caption left-align">
+              
+            </div>
+          </li>
+          <li>
+            <img src="img/portada/img3.jpg"> <!-- random image -->
+            <div class="caption right-align">
+              
+            </div>
+          </li>
+          <li>
+            <img src="img/portada/img4.jpg"> <!-- random image -->
+            <div class="caption center-align">
+              
+            </div>
+          </li>
+        </ul>
+      </div>
+</div>
+    
+    
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="materialize/js/bin/materialize.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+    	$(".dropdown-trigger").dropdown();
+      $('.slider').slider();
+  });
+</script>
     
 </body>
 </html>
