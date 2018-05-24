@@ -40,12 +40,15 @@
               Genero<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">
               Plataforma<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a class="dropdown-trigger" href="products.php">
+        Productos</a></li>
     </ul>
     <ul class="right hide-on-med-and-down">
         <?php 
         if(isset($_SESSION['loginUsu'])){
             echo "<li>".$_SESSION['loginUsu']."</li>";
-            ?><li><a href='options.php?option=close'><ing src="img/buttoms/salida.png"</a><li>
+            ?><li><a href='options.php?option=close'><img src="img/buttons/salida.png" 
+            style="margin-top: 55%;"></a><li>
             <?php
         }else{
             ?><li><a href='login.php'>Login</a></li>
@@ -102,7 +105,8 @@ margin-top: 3%;">
     
     
 <script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="materialize/js/bin/materialize.min.js"></script>
+<script type="text/javascript" src="materialize/js/bin/materialize.min.js">
+</script>
 <script type="text/javascript">
 	$(function(){
     	$(".dropdown-trigger").dropdown();
