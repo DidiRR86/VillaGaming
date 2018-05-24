@@ -128,7 +128,6 @@ class Conexiones {
         $consult = "select * from productos where idproducto='$id'";
         $result = $this->conexion->query($consult);
         $fila = $result->fetch_array();
-
         $this->disconect();
         return $fila;
     }
@@ -150,10 +149,11 @@ class Conexiones {
         $this->conect();
         $consult = "select * from productos where plataforma='$plataform'";
         $result = $this->conexion->query($consult);
-        
-        $data = $result->fetch_array();
+        while($fila = $result->fetch_array()){
+            array_push($this->articulos, $fila);
+        }
         $this->disconect();
-        return $data;
+        return $this->articulos;
     }
     
     //Sacar productos por el genero
@@ -161,10 +161,11 @@ class Conexiones {
         $this->conect();
         $consult = "select * from productos where genero='$gen'";
         $result = $this->conexion->query($consult);
-        
-        $data = $result->fetch_array();
+        while($fila = $result->fetch_array()){
+            array_push($this->articulos, $fila);
+        }
         $this->disconect();
-        return $data;
+        return $this->articulos;
         
     }
     
@@ -173,10 +174,11 @@ class Conexiones {
         $this->conect();
         $consult = "select compras,idproducto from productos";
         $result = $this->conexion->query($consult);
-        
-        $data = $result->fetch_array();
+        while($fila = $result->fetch_array()){
+            array_push($this->articulos, $fila);
+        }
         $this->disconect();
-        return $data;
+        return $this->articulos;
     }
     
     //Modificar la lista de deseos
