@@ -14,6 +14,7 @@ $plataforma = $_REQUEST["plataforma"];
 $cantidad = $_REQUEST["cantidad"];
 $imagen;
 
+
 /*$caratula;
 if (is_uploaded_file($_FILES['caratula']['tmp_name'])) {
     if (!is_dir("../img/covers/"))
