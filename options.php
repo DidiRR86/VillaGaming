@@ -1,13 +1,20 @@
 <?php
+    session_start();
     //Para controlar las peticiones del front.
 
     $option = $_REQUEST['option'];
+    require_once 'classes/conexiones.php';
+    
+    if($option === "close"){
+        session_destroy();
+        header('Location:index.php');
+    }
 
     if($option === "log"){
         $user = $_REQUEST['user'];
         $pass = $_REQUEST['pass'];
         
-        require_once 'conexiones.php';
+        
         $log = new Conexiones();
         
         $log->loginUsers($user, $pass);
@@ -24,16 +31,18 @@
         $cp = $_REQUEST['cp'];
         $birthDate = $_REQUEST['birthdate'];
         
-        require_once 'conexiones.php';
+        $date = new DateTime($birthDate);
+        $dateBD = $date->format('d-m-y');
+        
         $register = new Conexiones();
         
         if($register->registerUser($nick, $mail, $pass, $name, $surnames,
-                $address, $location, $cp, $birthDate)){
+                $address, $location, $cp,$dateBD)){
             echo '<script type="text/javascript">alert("Registro completado '
-                . 'correctamente!!");window.location="login.php";</script>';
+                . 'correctamente!!");window.location="index.php";</script>';
         }else{
             echo '<script type="text/javascript">alert("Algo ha fallado en el '
-            . 'registro, vuelve a intentarlo");window.location="login.php";</script>';
+            . 'registro, vuelve a intentarlo");window.location="register.php";</script>';
         }
     }
     

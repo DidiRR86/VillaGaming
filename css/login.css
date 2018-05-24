@@ -1,0 +1,89 @@
+#lista-admin legend,
+#lista-admin #opciones-admin span,
+#lista-admin #articulos-admin th.campoArticulo,
+#lista-admin #articulos-admin td.campoArticulo {
+    font-family: proxima-nova,arial,sans-serif;
+}
+
+#lista-admin {
+    width: 30%;
+    margin: 0 auto;
+}
+
+#log{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+#lista-admin #opciones-admin {
+    margin-bottom: 20px;
+}
+
+#lista-admin #opciones-admin span {
+    margin-right: 20px;
+    padding: 5px 15px;
+    font-weight: 700;
+    border-radius: 3px;
+}
+
+#lista-admin #opciones-admin .normal {
+    color: #ff5400;
+    background-color: #ffffff;
+    border: 2px solid #ff5400;
+}
+
+#lista-admin #opciones-admin .inverse {
+    color: #ffffff;
+    background-color: #ff5400;
+    border: 2px solid #000000;
+}
+
+#lista-admin legend {
+    padding: 5px 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #ff5400;
+    background-color: #000000;
+    border-radius: 3px;
+}
+
+#lista-admin #articulos-admin {
+    width: 100%;
+}
+
+#lista-admin #articulos-admin th.campoArticulo,
+#lista-admin #articulos-admin td.campoArticulo {
+    text-align: center;
+    border: 1px solid;
+    border-radius: 3px;
+}
+
+#lista-admin #articulos-admin th.campoArticulo {
+    max-width: 65px;
+    margin: 10px;
+    padding: 5px 15px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #ff5400;
+}
+
+#lista-admin #articulos-admin td.campoArticulo.imagen {
+    border: 0;
+}
+
+#lista-admin #articulos-admin td.campoArticulo.boton {
+    display: block;
+    margin: 10px;
+    padding: 5px 15px;
+    background-color: #ff5400;
+    border: 1.5px solid;
+    border-radius: 3px;
+}
+
+#lista-admin #articulos-admin td.campoArticulo.boton span {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+}
