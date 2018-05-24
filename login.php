@@ -12,30 +12,66 @@
     <meta charset="UTF-8"/>
     <title>VillaGaming - Login</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" href="materialize/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+    <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 10%;">
+    <div class="nav-wrapper">
+      <ul class="left hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+      <li> <a class="dropdown-trigger" href="products.php" data-target="dropdown1">
+              Genero<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">
+              Plataforma<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a class="dropdown-trigger" href="products.php">
+        Productos</a></li>
+    </ul>
+    <ul class="right hide-on-med-and-down">
+        <?php 
+        if(isset($_SESSION['loginUsu'])){
+            echo "<li>".$_SESSION['loginUsu']."</li>";
+            ?><li><a href='options.php?option=close'><img src="img/buttons/salida.png" 
+            style="margin-top: 55%;"></a><li>
+            <?php
+        }else{
+            ?><li><a href='login.php'>Login</a></li>
+            <li><a href="register.php">Resgistrarse</a></li>
+            <?php
+        }
+        ?>  
+    </ul>
+    <ul class="center hide-on-med-and-down" style="margin-left: 40%;">
+      <!-- Dropdown Trigger -->
+      <li><input type="search" style="background-color: white;
+        border-radius: 20px;
+        width: 125%;" placeholder="Buscar" /></li>
+    </ul>
+  </div>
+</nav>
     <div id="lista-admin">
-        <fieldset>
-            <legend>Login Users</legend>
-            <form method="post" action="options.php?option=log">
-                <div id="log">
-                    <table>
-                        <tr>
-                            <td>Correo</td>
-                            <td><input type="text" name="user" required/></td>
-                        </tr>
-                        <tr>
-                            <td>Contraseña</td>
-                            <td><input type="password" name="pass" required/></td>
-                        </tr>
-                    </table>
-                    <input type="submit" value="Acceder"/>
-                    &nbsp;&nbsp; <a href="register.php">¿Aún no estas registrado?</a><br /><br />
-                    <a href="#">¿Has olvidado la contraseña?</a>
+        <div class="row">
+            <form class="col s12" method="post" action="options.php?option=register">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" class="validate" name="user">
+                  <label>Email</label>
                 </div>
+                <div class="input-field col s6">
+                    <input type="password" class="validate" name="pass">
+                  <label>Correo</label>
+                </div>
+              </div>
+              <button class="btn waves-effect waves-light red lighten-2" type="submit" 
+                      name="action">Acceder
+                <i class="material-icons right">send</i>
+              </button>
+                &nbsp;&nbsp; <a href="register.php">¿Aún no estas registrado?</a><br /><br />
+                    <a href="#">¿Has olvidado la contraseña?</a>
             </form>
-        </fieldset>
-    </div>
+        </div>
+    </div>        
 </body>
 </html>
 

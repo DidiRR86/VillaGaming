@@ -32,11 +32,11 @@
       <li><a href="#!">Estrategia</a></li>
       <li><a href="#!">Indi</a></li>
     </ul>
-<nav id="nav-bar" style="width: 80%;margin: 0 auto;margin-top: 10%;">
+<nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 10%;">
     <div class="nav-wrapper">
       <ul class="left hide-on-med-and-down">
       <!-- Dropdown Trigger -->
-      <li> <a class="dropdown-trigger" href="products.php" data-target="dropdown1">
+      <li> <a class="dropdown-trigger" href="#!" data-target="dropdown1">
               Genero<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">
               Plataforma<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -64,54 +64,36 @@
         width: 125%;" placeholder="Buscar" /></li>
     </ul>
   </div>
-    
-    
-  
 </nav>
     
-<div id="content" style="width: 73%;
-margin: 0 auto;
-margin-top: 3%;">
 
-    <div class="slider">
+    <div class="slider" style="width: 73%;
+    margin: 0 auto;
+    margin-top: 3%;">
         <ul class="slides">
           <li>
-            <img src="img/portada/img1.jpg"> <!-- random image -->
-            <div class="caption center-align">
-              
-            </div>
+              <img src="img/portada/img1.jpg"> <!-- random image -->
           </li>
           <li>
-            <img src="img/portada/img2.jpg"> <!-- random image -->
-            <div class="caption left-align">
-              
-            </div>
+              <img src="img/portada/img2.jpg"> <!-- random image -->
           </li>
           <li>
-            <img src="img/portada/img3.jpg"> <!-- random image -->
-            <div class="caption right-align">
-              
-            </div>
+              <img src="img/portada/img3.jpg"> <!-- random image -->
           </li>
           <li>
-            <img src="img/portada/img4.jpg"> <!-- random image -->
-            <div class="caption center-align">
-              
-            </div>
+              <img src="img/portada/img4.jpg"> <!-- random image -->
           </li>
         </ul>
       </div>
-</div>
-    
-    
-<script type="text/javascript" src="jquery.js"></script>
+
+<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="materialize/js/bin/materialize.min.js">
 </script>
 <script type="text/javascript">
-	$(function(){
-    	$(".dropdown-trigger").dropdown();
-      $('.slider').slider();
-  });
+    $(function(){
+        $('.slider').slider();
+        $(".dropdown-trigger").dropdown();
+    });
 </script>
     
 </body>

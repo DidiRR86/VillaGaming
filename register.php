@@ -12,56 +12,108 @@
     <meta charset="UTF-8"/>
     <title>VillaGaming - Register</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" href="materialize/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+    <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 10%;">
+    <div class="nav-wrapper">
+      <ul class="left hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+      <li> <a class="dropdown-trigger" href="products.php" data-target="dropdown1">
+              Genero<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">
+              Plataforma<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a class="dropdown-trigger" href="products.php">
+        Productos</a></li>
+    </ul>
+    <ul class="right hide-on-med-and-down">
+        <?php 
+        if(isset($_SESSION['loginUsu'])){
+            echo "<li>".$_SESSION['loginUsu']."</li>";
+            ?><li><a href='options.php?option=close'><img src="img/buttons/salida.png" 
+            style="margin-top: 55%;"></a><li>
+            <?php
+        }else{
+            ?><li><a href='login.php'>Login</a></li>
+            <li><a href="register.php">Resgistrarse</a></li>
+            <?php
+        }
+        ?>  
+    </ul>
+    <ul class="center hide-on-med-and-down" style="margin-left: 40%;">
+      <!-- Dropdown Trigger -->
+      <li><input type="search" style="background-color: white;
+        border-radius: 20px;
+        width: 125%;" placeholder="Buscar" /></li>
+    </ul>
+  </div>
+</nav>
     <div id="lista-admin">
-        <fieldset>
-            <legend>Register Users</legend>
-            <form method="post" action="options.php?option=register">
-                <div id="log">
-                    <table>
-                        <tr>
-                            <td>Nick</td>
-                            <td><input type="text" name="user" required/></td>
-                        </tr>
-                        <tr>
-                            <td>Correo</td>
-                            <td><input type="text" name="mail" required/></td>
-                        </tr>
-                        <tr>
-                            <td>Contraseña</td>
-                            <td><input type="password" name="pass" required/></td>
-                        </tr>
-                        <tr>
-                            <td>Nombre</td>
-                            <td><input type="text" name="name" required/></td>
-                        </tr>
-                        <tr>
-                            <td>Apellidos</td>
-                            <td><input type="text" name="surname" required/></td>
-                        </tr>
-                        <tr>
-                            <td>Direccion</td>
-                            <td><input type="text" name="address" required/></td>
-                        </tr>
-                        <tr>
-                            <td>Localidad</td>
-                            <td><input type="text" name="location" required/></td>
-                        </tr>
-                        <tr>
-                            <td>Codigo Postal</td>
-                            <td><input type="text" name="cp" required/></td>
-                        </tr>
-                        <tr>
-                            <td>Fecha de Nacimiento</td>
-                            <td><input type="date" name="birthdate" required/></td>
-                        </tr>
-                    </table>
-                    <input type="submit" value="Registrar"/>
+        <div class="row">
+            <form class="col s12" method="post" action="options.php?option=register">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" class="validate" name="user">
+                  <label>Nick</label>
                 </div>
+                <div class="input-field col s6">
+                  <input type="email" class="validate" name="mail">
+                  <label>Correo</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" class="validate" name="name">
+                  <label>Nombre</label>
+                </div>
+                <div class="input-field col s6">
+                  <input type="text" class="validate" name="surname">
+                  <label>Apellidos</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="password" class="validate" name="pass">
+                  <label>Contraseña</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" class="validate" name="address">
+                  <label>Direccion</label>
+                </div>
+                <div class="input-field col s6">
+                  <input type="text" class="validate" name="location">
+                  <label>Localidad</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" class="validate" name="cp">
+                  <label>Codigo Postal</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" class="datepicker" name="birthdate">
+                  <label>Fecha de Nacimiento</label>
+                </div>
+              </div>
+              <button class="btn waves-effect waves-light red lighten-2" type="submit" 
+                      name="action">Registrar
+                <i class="material-icons right">send</i>
+              </button>
             </form>
-        </fieldset>
-    </div>
+          </div>
+      </div>
+  <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="materialize/js/bin/materialize.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+      M.updateTextFields();
+      $('.datepicker').datepicker();
+  });
+</script>
 </body>
 </html>
 

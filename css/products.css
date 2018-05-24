@@ -8,16 +8,16 @@ and open the template in the editor.
     Author     : Salas
 */
 #products{
-    width:50%;
+    width:60%;
     height:auto;
     margin:0 auto;
+    margin-top: 3%;
 }
 
 .product{
     display:inline-table;
     position:relative;
-    width:30%;
-    height:20%;
-    margin:2pt;
+    width:23%;
+    height:10%;
     margin-bottom:3pt;
 }
