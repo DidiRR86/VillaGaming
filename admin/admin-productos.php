@@ -52,6 +52,8 @@
         print('<td class="campoArticulo"><input type="text" name="youtube"/></td></tr>');
         print('<tr><td class="nombreArticulo">Fecha Publicación</td>');
         print('<td class="campoArticulo"><input type="date" name="fechpubli"/></td></tr>');
+        print('<tr><td class="nombreArticulo">Portada</td>');
+        print('<td class="campoArticulo"><input type="file" name="imagen"/></td></tr>');
         print('</table>');
         print('<div id="agregar-options">');
         print('<button type="button">
