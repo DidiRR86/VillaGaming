@@ -5,7 +5,7 @@
         header('Location:admin/admin.php');
     }
 ?>
-<!DOCTIPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8"/>
@@ -47,8 +47,8 @@
         <?php 
         if(isset($_SESSION['loginUsu'])){
             echo "<li>".$_SESSION['loginUsu']."</li>";
-            ?><li><a href='options.php?option=close'><img src="img/buttons/salida.png" 
-            style="margin-top: 55%;"></a><li>
+            ?><li><a href='options.php?option=close' style="height: 64px;">
+              <img src="img/buttons/salida.png" style="margin-top: 55%;"></a><li>
             <?php
         }else{
             ?><li><a href='login.php'>Login</a></li>
