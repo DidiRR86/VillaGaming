@@ -8,9 +8,9 @@
     <script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="../js/admin-list.js" type="text/javascript"></script>
 </head>
-<body>
+<body class="admin">
     <?php
-    include '../classes/consultas.php';
+    include '../classes/admin-consultas.php';
     ?>
     <div id="lista-admin">
         <div id="opciones-admin">
@@ -63,7 +63,6 @@
                 }
                 ?>
             </table>
-            
         </fieldset>
     </div>
 </body>

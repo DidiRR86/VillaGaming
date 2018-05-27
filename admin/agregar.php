@@ -1,5 +1,5 @@
 <?php
-include "../classes/consultas.php";
+include "../classes/admin-consultas.php";
 /*session_start();
 
 if(!isset($_SESSION["admin"])) {
@@ -23,8 +23,9 @@ if (is_uploaded_file($_FILES['imagen']['tmp_name'])) {
     if (!is_dir("img/covers/"))
         mkdir("img/covers/");
     $destino = "../img/covers/";
-    $imagen = $destino.$_FILES['imagen']['name'];
-    $imagenBD = "img/covers/".$_FILES['imagen']['name'];
+    $unica = time();
+    $imagen = $destino.$unica.$_FILES['imagen']['name'];
+    $imagenBD = "img/covers/".$unica.$_FILES['imagen']['name'];
     $archivo = $_FILES['imagen']['name'];
     if (!is_file($imagen)) {
         move_uploaded_file($_FILES['imagen']['tmp_name'], $imagen);
