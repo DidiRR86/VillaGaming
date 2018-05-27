@@ -38,7 +38,7 @@ session_start();
             <li><a href="#!">Estrategia</a></li>
             <li><a href="#!">Indi</a></li>
         </ul>
-        <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 1%;">
+        <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 5%;">
             <div class="nav-wrapper">
                 <ul class="left hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
@@ -87,7 +87,7 @@ session_start();
                 ?>
                 <div class="card product hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="<?php echo $filas['imagen']; ?>">
+                        <img class="materialboxed" width="650" src="<?php echo $filas['imagen']; ?>">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">
@@ -112,10 +112,25 @@ session_start();
                         <div style="display: inline-block;">
                             <i class="medium material-icons">favorite</i>
                         </div>
-                        <div style="margin-left:30%;">
-                            <a class="waves-effect waves-light btn">
-                                <i class="material-icons right">local_grocery_store</i>
-                                Comprar</a>
+                        <div style="text-align:right;">
+                            
+                                <?php 
+                                    if(isset($_SESSION['carrito'][$filas['idproducto']])){
+                                        ?>
+                                        <a class="waves-effect waves-light btn disabled" 
+                                        href="options.php?option=add&id=<?php echo $filas['idproducto']; ?>">
+                                        <i class="material-icons right">local_grocery_store</i>
+                                        Comprar</a>
+                                        <?php
+                                    }else{
+                                        ?>
+                                        <a class="waves-effect waves-light btn" 
+                                        href="options.php?option=add&id=<?php echo $filas['idproducto']; ?>">
+                                        <i class="material-icons right">local_grocery_store</i>
+                                        Comprar</a>
+                                        <?php
+                                    }
+                                ?>
                         </div>
 
                         <p><?php echo $filas['descripcion']; ?></p>
@@ -132,11 +147,12 @@ session_start();
             ?>
         </div>
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="materialize/js/bin/materialize.min.js"></script>
+        <script type="text/javascript" src="materialize/js/bin/materialize.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.modal').modal();
                 $(".dropdown-trigger").dropdown();
+                $('.materialboxed').materialbox();
             });
 
         </script>

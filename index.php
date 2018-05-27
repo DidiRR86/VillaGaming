@@ -36,7 +36,7 @@ if (isset($_SESSION['loginAdmin'])) {
             <li><a href="#!">Estrategia</a></li>
             <li><a href="#!">Indi</a></li>
         </ul>
-        <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 1%;">
+        <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 5%;">
             <div class="nav-wrapper">
                 <ul class="left hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
@@ -94,7 +94,7 @@ if (isset($_SESSION['loginAdmin'])) {
         </div>
 
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="materialize/js/bin/materialize.min.js">
+        <script type="text/javascript" src="materialize/js/bin/materialize.js">
         </script>
         <script type="text/javascript">
             $(function () {

@@ -36,7 +36,7 @@ if (isset($_SESSION['loginAdmin'])) {
             <li><a href="#!">Estrategia</a></li>
             <li><a href="#!">Indi</a></li>
         </ul>
-        <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 1%;">
+        <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 5%;">
             <div class="nav-wrapper">
                 <ul class="left hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
@@ -75,11 +75,55 @@ if (isset($_SESSION['loginAdmin'])) {
         </nav>
 
 
-        <div class="contain">
+        <div class="container" style="color: white;">
+                <?php
+                if(isset($_SESSION['carrito'])){
+                    $precioTotal = 0;
+                ?>
+                    <table class="responsive-table">
+                        <thead>
+                          <tr>
+                              <th>Nombre</th>
+                              <th>Precio</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                <?php
+                    foreach ($_SESSION['carrito'] as $productos){
+                        $precioTotal += $productos['precio'];
+                ?>
+                          <tr>
+                            <td><?php echo $productos['nombre']; ?></td>
+                            <td><?php echo $productos['precio']; ?> €</td>
+                          </tr>
+                <?php
+                    }
+                ?>
+                          <tr>
+                              <td></td>
+                            <th>Precio Total</th>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td colspan="2"><?php echo $precioTotal; ?></td>
+                          </tr>
+                        </tbody>
+                    </table>
+                    <a class="waves-effect waves-light right btn" 
+                       href="options.php?option=addPedido&prec=<?php echo $precioTotal; ?>" style="margin-top: 2%;">
+                    <i class="material-icons right">local_grocery_store</i>
+                    Finalizar Compra</a>
+                    
+                <?php
+                }else{
+                    echo 'No hay articulos añadidos';
+                }
+                ?>
         </div>
 
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="materialize/js/bin/materialize.min.js">
+        <script type="text/javascript" src="materialize/js/bin/materialize.js">
         </script>
         <script type="text/javascript">
             $(function () {
