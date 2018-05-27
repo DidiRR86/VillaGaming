@@ -1,3 +1,7 @@
+body.admin {
+    background-color: #ffffff;
+}
+
 #lista-admin,
 #agregar-admin {
     width: 80%;
