@@ -1,25 +1,23 @@
 <?php
 session_start();
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+if (isset($_SESSION['loginAdmin'])) {
+    header('Location:admin/admin.php');
+}
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+        <meta charset="UTF-8"/>
         <title>VillaGaming - Inicio</title>
-
-        <link rel="stylesheet" type="text/css" href="css/products.css"/>
         <link rel="stylesheet" type="text/css" href="css/global.css" /> 
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link rel="stylesheet" href="materialize/css/materialize.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     </head>
     <body>
-         <header>
+        <header>
             <a title="Inicio" href="index.php"><img src="img/banner.png"></a>
         </header>
         <ul id="dropdown1" class="dropdown-content">
@@ -42,6 +40,7 @@ session_start();
             <div class="nav-wrapper">
                 <ul class="left hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
+
                     <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">
                             Plataforma<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li> <a class="dropdown-trigger" href="#!" data-target="dropdown2">
@@ -55,7 +54,8 @@ session_start();
                         echo "<li>" . $_SESSION['loginUsu'] . "</li>";
                         ?><li><a href='options.php?option=close' style="height: 64px;">
                                 <img src="img/buttons/salida.png" style="margin-top: 55%;"></a><li>
-                            <li><a href='vistacarro.php' style="height: 64px;">
+                        <li></li>
+                        <li><a href='vistacarro.php' style="height: 64px;">
                                 <img src="img/buttons/carro.png" style="margin-top: 55%;"></a></li>
                             <?php
                         } else {
@@ -74,71 +74,19 @@ session_start();
             </div>
         </nav>
 
-        <?php
-        require_once 'classes/conexiones.php';
 
-        $dats = new Conexiones();
-
-        $products = $dats->getAllProducts();
-        ?>
-        <div class="container" style="margin-top:3%;">
-            <?php
-            foreach ($products as $filas) {
-                ?>
-                <div class="card product hoverable">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="<?php echo $filas['imagen']; ?>">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">
-                            <?php echo $filas['nombre']; ?></span>
-                        <p> <a class="waves-effect waves-light btn modal-trigger" 
-                               href="#modal<?php echo $filas['idproducto']; ?>">Ver detalles producto</a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">
-                            <?php echo $filas['nombre']; ?></span>
-                        <p>
-                            <?php
-                            echo $filas['descripcion'];
-                            ?>
-                        </p>
-                    </div>
-                </div>
-                <!--        Modal para los articulos-->
-                <div id="modal<?php echo $filas['idproducto']; ?>" class="modal">
-                    <div class="modal-content">
-                        <h3 style="display: inline-block;"><?php echo $filas['nombre']; ?></h3>
-                        <div style="display: inline-block;">
-                            <i class="medium material-icons">favorite</i>
-                        </div>
-                        <div style="margin-left:30%;">
-                            <a class="waves-effect waves-light btn">
-                                <i class="material-icons right">local_grocery_store</i>
-                                Comprar</a>
-                        </div>
-
-                        <p><?php echo $filas['descripcion']; ?></p>
-
-                        <div style="text-align: center;">
-                            <iframe width="560" height="315" src="<?php echo $filas['youtube']; ?>" 
-                                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                        </div>
-                    </div>
-
-                </div>
-                <?php
-            }
-            ?>
+        <div class="contain">
         </div>
+
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="materialize/js/bin/materialize.min.js"></script>
+        <script type="text/javascript" src="materialize/js/bin/materialize.min.js">
+        </script>
         <script type="text/javascript">
-            $(document).ready(function () {
-                $('.modal').modal();
+            $(function () {
                 $(".dropdown-trigger").dropdown();
             });
-
         </script>
+
     </body>
 </html>
+

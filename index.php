@@ -54,6 +54,8 @@ if (isset($_SESSION['loginAdmin'])) {
                         echo "<li>" . $_SESSION['loginUsu'] . "</li>";
                         ?><li><a href='options.php?option=close' style="height: 64px;">
                                 <img src="img/buttons/salida.png" style="margin-top: 55%;"></a><li>
+                            <li><a href='vistacarro.php' style="height: 64px;">
+                                <img src="img/buttons/carro.png" style="margin-top: 55%;"></a></li>
                             <?php
                         } else {
                             ?><li><a href='login.php'>Login</a></li>
