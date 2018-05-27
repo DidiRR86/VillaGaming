@@ -13,7 +13,7 @@ session_start();
         <title>VillaGaming - Inicio</title>
 
         <link rel="stylesheet" type="text/css" href="css/products.css"/>
-        <link rel="stylesheet" type="text/css" href="css/global.css" /> 
+        <link rel="stylesheet" type="text/css" href="css/index.css" /> 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link rel="stylesheet" href="materialize/css/materialize.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -28,6 +28,7 @@ session_start();
             <li><a href="#!">Uplay</a></li>
             <li><a href="#!">Xbox</a></li>
             <li><a href="#!">PlayStation</a></li>
+            <li><a href="#!">Nintendo</a></li>
         </ul>
         <ul id="dropdown2" class="dropdown-content">
             <li><a href="#!">Accion</a></li>
@@ -35,10 +36,12 @@ session_start();
             <li><a href="#!">Aventura</a></li>
             <li><a href="#!">Carreras</a></li>
             <li><a href="#!">Deporte</a></li>
+            <li><a href="#!">Lucha</a></li>
             <li><a href="#!">Estrategia</a></li>
             <li><a href="#!">Indi</a></li>
+            <li><a href="#!">Plataformas</a></li>
         </ul>
-        <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 1%;">
+        <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 5%;">
             <div class="nav-wrapper">
                 <ul class="left hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
@@ -110,6 +113,7 @@ session_start();
                         <div style="display: inline-block;">
                             <i class="medium material-icons">favorite</i>
                         </div>
+                        <h3><?php echo $filas['precio'].'€'; ?></h3>
                         <div style="margin-left:30%;">
                             <a class="waves-effect waves-light btn">
                                 <i class="material-icons right">local_grocery_store</i>

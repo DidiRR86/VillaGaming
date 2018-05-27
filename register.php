@@ -12,7 +12,7 @@ if (isset($_SESSION['loginAdmin'])) {
         <meta charset="UTF-8"/>
         <title>VillaGaming - Register</title>
         <link rel="stylesheet" type="text/css" href="css/login.css">
-        <link rel="stylesheet" type="text/css" href="css/global.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" href="materialize/css/materialize.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -27,6 +27,7 @@ if (isset($_SESSION['loginAdmin'])) {
             <li><a href="#!">Uplay</a></li>
             <li><a href="#!">Xbox</a></li>
             <li><a href="#!">PlayStation</a></li>
+            <li><a href="#!">Nintendo</a></li>
         </ul>
         <ul id="dropdown2" class="dropdown-content">
             <li><a href="#!">Accion</a></li>
@@ -34,10 +35,12 @@ if (isset($_SESSION['loginAdmin'])) {
             <li><a href="#!">Aventura</a></li>
             <li><a href="#!">Carreras</a></li>
             <li><a href="#!">Deporte</a></li>
+            <li><a href="#!">Lucha</a></li>
             <li><a href="#!">Estrategia</a></li>
             <li><a href="#!">Indi</a></li>
+            <li><a href="#!">Plataformas</a></li>
         </ul>
-        <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 1%;">
+        <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 5%;">
             <div class="nav-wrapper">
                 <ul class="left hide-on-med-and-down">
                     <!-- Dropdown Trigger -->

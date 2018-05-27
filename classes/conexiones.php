@@ -233,4 +233,25 @@ class Conexiones {
             return $lista;
         }
     }
+    
+    //Comprobar pass
+     function comprobarPass($correo){
+        $this->conect();
+        $consulta = "SELECT CORREO FROM USUARIOS WHERE CORREO LIKE '$correo'";
+        $resultado = $this -> conexion -> query($consulta);
+        if($resultado -> num_rows != 0){
+            return true;
+        }
+    }
+   
+    
+    //Recuperar la contraseña olvidada
+    function recuperarPass($correo){
+        $this->conect();
+        $consulta = "SELECT CONTRASENA FROM USUARIOS WHERE CORREO LIKE '$correo'";
+        $resultado = $this -> conexion -> query($consulta) -> fetch_array();
+        return $resultado[0];
+    }
+    
+    
 }
