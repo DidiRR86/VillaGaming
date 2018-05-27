@@ -52,5 +52,11 @@
  
     }
     
+    if($option === "add"){
+        $id = $_REQUEST['id'];
+        
+        
+    }
+    
 
     
