@@ -14,11 +14,12 @@ class Conexiones {
     //put your code here
     private $conexion;
     private $articulos = array();
-
+    
 
     //Para hacer la conexion a la BD.
     private function conect(){
         $this->conexion = new mysqli('localhost', 'root', '', 'villagaming');
+        $this->conexion->set_charset('utf8');
     }
     //Para desconectar la BD.
     private function disconect(){
