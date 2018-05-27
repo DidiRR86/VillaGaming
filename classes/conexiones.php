@@ -14,11 +14,12 @@ class Conexiones {
     //put your code here
     private $conexion;
     private $articulos = array();
-
+    
 
     //Para hacer la conexion a la BD.
     private function conect(){
         $this->conexion = new mysqli('localhost', 'root', '', 'villagaming');
+        $this->conexion->set_charset('utf8');
     }
     //Para desconectar la BD.
     private function disconect(){
@@ -232,4 +233,37 @@ class Conexiones {
             return $lista;
         }
     }
+    
+    //Saca el ultimo número de pedido
+    function numPedido(){
+        $this->conect();
+        $consulta = "select max(idpedido) from pedidos";
+        $result = $this->conexion->query($consulta);
+        $this->disconect();
+        return $result->fetch_array();
+    }
+    
+    //Iniciar pedidos
+    function initPedidos($mail){
+       $this->conect();
+        $consult = "insert into pedidos (correo) values ('$mail')";
+        if($result = $this->conexion->query($consult)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    //Añadir la direccion de el archivo pdf
+    function addPdfDirect($directFactu,$numPedido){
+        $this->conect();
+        $consult = "update pedidos set factura='$directFactu' where idpedido='$numPedido'";
+        
+        if($result = $this->conexion->query($consult)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
 }

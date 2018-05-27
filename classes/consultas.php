@@ -5,7 +5,7 @@ class Consultas
     private $resultado;
 
     function __construct() {
-        $this->conexion = new mysqli('localhost','guzman','guzman','villagaming');
+        $this->conexion = new mysqli('localhost','root','','villagaming');
         /*$this->conexion = new mysqli('localhost','admin','admin','villagaming');*/
     }
 
