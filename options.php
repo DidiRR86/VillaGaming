@@ -54,12 +54,22 @@
     }
     
     if($option === "add"){
-        $id = $_REQUEST['id'];
-        
-        $carro = new Carro();
-        $product = new Conexiones();
-        $carro->add($product->getProduct($id));
-        header('location:vistacarro.php');
+        if(!isset($_SESSION['loginUsu'])){
+            header('Location:login.php');
+        }else{
+            $id = $_REQUEST['id'];
+
+            $carro = new Carro();
+            $product = new Conexiones();
+            $carro->add($product->getProduct($id));
+            header('location:vistacarro.php');   
+        }
+    }
+    
+    if($option === "del"){
+        $id = $_REQUEST['delete'];
+        unset($_SESSION['carrito'][$id]);
+        header('location:vistacarro.php'); 
     }
     
     if($option === "addPedido"){
@@ -119,7 +129,7 @@
                 
                 //I -> Para ver sin guardar.
                 //F -> Para guardar directamente
-		$pdf->Output('I',$directFactu);	
+		//$pdf->Output('I',$directFactu);	
 		
 //                unset($_SESSION['carrito']);
 	}

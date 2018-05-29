@@ -73,7 +73,7 @@
     </ul>
   </div>
 </nav>
-    <div id="lista-admin">
+    <div id="lista-admin" style="color: white;">
         <div class="row">
             <form class="col s12" method="post" action="options.php?option=log">
               <div class="row">

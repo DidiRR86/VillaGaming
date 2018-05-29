@@ -78,7 +78,7 @@ if (isset($_SESSION['loginAdmin'])) {
         </nav>
 
 
-        <div class="container" style="color: white;">
+        <div class="container center" style="color: white;">
                 <?php
                 if(isset($_SESSION['carrito'])){
                     $precioTotal = 0;
@@ -99,6 +99,9 @@ if (isset($_SESSION['loginAdmin'])) {
                           <tr>
                             <td><?php echo $productos['nombre']; ?></td>
                             <td><?php echo $productos['precio']; ?> €</td>
+                            <td><a href="options.php?option=del&delete=<?php 
+                            echo $productos['idproducto']; ?>">
+                             <i class="small material-icons">clear</i></a></td>
                           </tr>
                 <?php
                     }
