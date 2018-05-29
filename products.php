@@ -113,7 +113,7 @@ session_start();
                             <i class="medium material-icons">favorite</i>
                         </div>
                         <div style="text-align:right;">
-                            
+                            <img src="img/buttons/like.png" class="left" style="background-color:red;">
                                 <?php 
                                     if(isset($_SESSION['carrito'][$filas['idproducto']])){
                                         ?>

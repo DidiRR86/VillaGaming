@@ -218,7 +218,8 @@ if (isset($_SESSION['loginAdmin'])) {
 
         <div class="container" style="color: white;">
                 <?php
-                if(isset($_SESSION['carrito'])){
+                
+                if(count($_SESSION['carrito']) > 0){
                     $precioTotal = 0;
                 ?>
                     <table class="responsive-table">
