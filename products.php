@@ -111,13 +111,11 @@ session_start();
                 <!--        Modal para los articulos-->
                 <div id="modal<?php echo $filas['idproducto']; ?>" class="modal">
                     <div class="modal-content">
-                        <h3 style="display: inline-block;"><?php echo $filas['nombre']; ?></h3>
-                        <div style="display: inline-block;">
-                            <i class="medium material-icons">favorite</i>
-                        </div>
-                        <h3><?php echo $filas['precio'].'€'; ?></h3>
+                        <h2 style="display: inline-block;"><?php echo $filas['nombre']; ?></h2>
+                        
+                        <h4 class="center"><u><?php echo $filas['precio'].'€'; ?></u></h4>
                         <div style="text-align:right;">
-                            
+                            <img src="img/buttons/like.png" class="left" style="background-color:red;">
                                 <?php 
                                     if(isset($_SESSION['carrito'][$filas['idproducto']])){
                                         ?>
