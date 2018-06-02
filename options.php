@@ -3,6 +3,7 @@
     //Para controlar las peticiones del front.
 
     $option = $_REQUEST['option'];
+    
     require_once 'classes/conexiones.php';
     require_once 'classes/carro.php';
     
@@ -65,20 +66,38 @@
     if($option === "addPedido"){
         $totalPrec = $_REQUEST['prec'];
         $mail = $_SESSION['mailUsu'];
-
+        $pago = "paypal";
+        //$_REQUEST['group1']
         $carritoSesion = $_SESSION['carrito'];
         
         $init = new Conexiones();
+        $datosUsu = $init->getUser($mail);
+        
+        $numGame = [];
+        $correctNumGame = true;
+        for($i=0;$i<count($carritoSesion);$i++){
+            $correctNumGame = true;
+            do{
+                $num = generateNumGame();
+                $correctNumGame = $init->checkNumGame($num);
+            }while($correctNumGame);
+            array_push($numGame, $num);
+        }
                
-        if($init->initPedidos($mail)){
+        if(true){
             $numPedido = $init->numPedido();
-            crearFactura($totalPrec, $carritoSesion,$numPedido);
-            echo '<script type="text/javascript">alert("¡El pedido se ha realizado correctamente!");window.location="index.php";</script>';
+            $num = 0;
+            foreach($carritoSesion as $arti){
+                $init->addNumGame($numGame[$num],$arti['idproducto'],(int)$numPedido[0]);
+                $num++;
+            }
+            crearFactura($totalPrec, $carritoSesion,$numPedido, $pago, $datosUsu, $numGame);
+                echo '<script type="text/javascript">alert("¡El pedido se ha realizado correctamente!");window.location="index.php";</script>';
         }else{
                 echo '<script type="text/javascript">alert("¡Fallo al realizar la compra!");window.location="index.php";</script>';
         }
     }
-	function crearFactura($totalPrecio, $carritoSesion, $numPedido){
+	function crearFactura($totalPrecio, $carritoSesion, $numPedido, $pago, $datosUsu, $numGame){
 		
 		include('pdf/fpdf.php');
 		$pdf = new FPDF();
@@ -91,18 +110,50 @@
 		$pdf->Cell(60,12,"Fecha: ". date('d/m/Y'));
 		$pdf->Ln(16);
 		$pdf->SetFont('Arial', 'B', 16);
-		$pdf->Cell(100,10,'Descripcion');
-		$pdf->Cell(10,10,'Precio');
+		$pdf->Cell(100,10,'Nombre');
+		$pdf->Cell(40,10,'Precio');
+                $pdf->Cell(10,10,'Clave');
 		$pdf->Ln(15);
 		$pdf->SetFont('Arial','',13);
+                    //Listado de productos
+                $num = 0;
                     foreach($carritoSesion as $produ){
-                            $pdf->Cell(110,10,$produ['nombre']);
-                            $pdf->Cell(10,10,$produ['precio']);
-                            $pdf->Ln(8);
+                        $pdf->Cell(100,10,$produ['nombre']);
+                        $pdf->Cell(40,10,$produ['precio']);
+                        $pdf->Cell(10,10,$numGame[$num]);
+                        $pdf->Ln(8);
+                        $num++;    
                     }
-		$pdf->Ln(10);
+		$pdf->Ln(20);
+                $pdf->SetFont('Arial', 'B', 16);
+		$pdf->Cell(100,10,'Direccion de envio');
 		$pdf->SetFont('Arial','I',13);
-		$pdf->Cell(100,8," ");
+                $pdf->Ln(13);
+                
+                //DIreccion de envio
+                $pdf->Cell(10,5,$datosUsu['nombre']);
+                $pdf->Cell(3,8," ");
+                $pdf->Cell(10,5,$datosUsu['apellidos']);
+                $pdf->Ln(2);
+                $pdf->Cell(10,15,$datosUsu['direccion']);
+                $pdf->Cell(3,8," ");
+                $pdf->Ln(2);
+                $pdf->Cell(10,25,$datosUsu['localidad']);
+                $pdf->Cell(15,8," ");
+                $pdf->Cell(10,25,$datosUsu['cp']);
+                $pdf->Ln(5);
+                
+                //Metodo de pago
+                if($pago === "tarjeta"){
+                    $pdf->Cell(100,8," ");
+                    $pdf->Cell(40,8,"Metodo de pago: Tarjeta");
+                }else if($pago === "paypal"){
+                    $pdf->Cell(100,8," ");
+                    $pdf->Cell(40,8,"Metodo de pago: Paypal");
+                }
+                
+                $pdf->Ln(20);
+                $pdf->Cell(100,8," ");
 		$pdf->Cell(80,8,"Total a pagar con IVA: ".$totalPrecio." Euros",1);
 		$pdf->Ln (25);
                 $pdf->SetFont('Arial','',8);
@@ -113,9 +164,9 @@
 		$pdf->Cell(80,8,"");
 		$pdf->Cell(10,8,"Todos los derechos reservados");
 		
-		$directFactu = 'facturas/Factura'.$numPedido[0].'.pdf';
-//		$init = new Conexiones();
-//                $init->addPdfDirect($directFactu,$numPedido[0]);
+                $directFactu = 'facturas/Factura'.$numPedido[0].'.pdf'; 
+//              $init = new Conexiones(); 
+//                $init->addPdfDirect($directFactu,$numPedido[0]); 
                 
                 //I -> Para ver sin guardar.
                 //F -> Para guardar directamente
@@ -123,6 +174,15 @@
 		
 //                unset($_SESSION['carrito']);
 	}
+        
+        function generateNumGame(){
+            $num = [];
+            for($i=0;$i<3;$i++){
+                array_push($num,rand(100,999));
+            }
+            $numGame = $num[0]."-".$num[1]."-".$num[2];
+            return $numGame;
+        }
         
     
     

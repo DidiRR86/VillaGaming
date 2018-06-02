@@ -117,7 +117,7 @@ class Conexiones {
         $this->conect();
         $consult = "select * from usuarios where correo='$mail'";
         $result = $this->conexion->query($consult);
-        
+
         $data = $result->fetch_array();
         $this->disconect();
         return $data;
@@ -264,6 +264,53 @@ class Conexiones {
         }else{
             return false;
         }
+    }
+    
+    //Añadir el numero dle juego a la bd
+    function addNumGame($numGame,$idProdu,$idPedido){
+        $this->conect();
+        
+        $consult = "insert into codigos (numcod,idproducto,pedidos_idpedido) "
+                . "values ('$numGame',$idProdu,$idPedido)";
+        if($result = $this->conexion->query($consult)){
+            return true;
+        }else{
+            return false;
+        }
+        $this->disconect();
+    }
+    
+    //Comprobar que existe el numero creado aleatoriamente
+    function checkNumGame($num){
+        $this->conect();
+        $consult = "select * from codigos where numcod='$num'";
+        $result = $this->conexion->query($consult);
+                
+        if($result->num_rows != 0){
+            return true;
+        }else{
+            return false;
+        }
+        $this->disconect();
+    }
+    
+    //Comprobar pass
+     function comprobarPass($correo){
+        $this->conect();
+        $consulta = "SELECT CORREO FROM USUARIOS WHERE CORREO LIKE '$correo'";
+        $resultado = $this -> conexion -> query($consulta);
+        if($resultado -> num_rows != 0){
+            return true;
+        }
+    }
+   
+    
+    //Recuperar la contraseña olvidada
+    function recuperarPass($correo){
+        $this->conect();
+        $consulta = "SELECT CONTRASENA FROM USUARIOS WHERE CORREO LIKE '$correo'";
+        $resultado = $this -> conexion -> query($consulta) -> fetch_array();
+        return $resultado[0];
     }
     
 }
