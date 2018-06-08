@@ -63,17 +63,23 @@ session_start();
                         <h4 class="center"><u><?php echo $filas['precio'].'€'; ?></u></h4>
                         <div style="text-align:right;">
                             <?php 
-                            if($dats->comprobarProduListaDeseos($filas['idproducto'],$_SESSION['mailUsu'])){
-                            ?>
-                                <img src="img/buttons/liked.png" class="left">
-                            <?php
+                            if(isset($_SESSION['loginUsu'])){
+                                if($dats->comprobarProduListaDeseos($filas['idproducto'],$_SESSION['mailUsu'])){
+                                ?>
+                                    <img src="img/buttons/liked.png" class="left">
+                                <?php
+                                }else{
+                                ?>
+                                    <a class="like" id="<?php echo $filas['idproducto']; ?>"
+                                       href="#">
+                                    <img src="img/buttons/like.png" class="left"></a>
+                                <?php 
+                                }
                             }else{
                             ?>
-                                <a class="like" id="<?php echo $filas['idproducto']; ?>">
-                                <img src="img/buttons/like.png" class="left" 
-                                     style="background-color:red;"></a>
-                            <?php 
-                            }                                                          
+                                <img src="img/buttons/like.png" class="left">
+                            <?php
+                            }
                             if(isset($_SESSION['carrito'][$filas['idproducto']])){
                                 ?>
                                 <a class="waves-effect waves-light btn disabled" 
@@ -125,7 +131,7 @@ session_start();
                                 if(peticion_http.responseText){
                                     M.toast({html: 'Agregado correctamente!'});
                                 }else{
-                                    M.toast({html: 'Fallo al agregar articulo!'});
+                                    M.toast({html: 'Fallo al agregar artículo!'});
                                 }
                             }
                         };
@@ -135,7 +141,7 @@ session_start();
                       // que me interesa enviar. En este caso solo el login
 
                       peticion_http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                      peticion_http.send("option=addLike&id="+id+"&option2=add");
+                      peticion_http.send("option=addLike&id="+id);
                     }    
                 });
             });

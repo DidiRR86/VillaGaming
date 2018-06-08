@@ -197,64 +197,64 @@ class Conexiones {
     }*/
     
     //Modificar la lista de deseos
-    function modifiListaDeseosUser($id,$mail,$option){
+    function addListaDeseos($id,$mail){
+        $this->conect();
+        $consult = "select listades from usuarios where correo='$mail'";
+        $result = $this->conexion->query($consult);
+ 
+        $data = $result->fetch_array();
+        $datosBD = array();
+        array_push($datosBD, json_decode($data[0]));
+        $lista = array();
+
+        for($i=0;$i<count($datosBD[0]);$i++){
+            if(null != $datosBD[0][$i]){
+                array_push($lista,$datosBD[0][$i]);
+            }
+        }
+        for($i=0;$i<count($lista);$i++){
+            if($id == $lista[$i]){
+                return false;
+            }
+        }
+        array_push($lista, $id);
+        $listJSON = json_encode($lista);
+        $consult = "update usuarios set listades='$listJSON' where "
+                . "correo='$mail'";
+        if($result = $this->conexion->query($consult)){
+            return true;
+        }else{
+            return false;
+        } 
+    }
+    
+    //Eliminar un producto de la lista de deseos
+    function delListaDeseos($id,$mail){
         $this->conect();
         $consult = "select listades from usuarios where correo='$mail'";
         $result = $this->conexion->query($consult);
         
-        if($result->num_rows > 0){
-            $data = $result->fetch_array();
-            $datosBD = array();
-            array_push($datosBD, json_decode($data[0], false));
-            $lista = array();
-            
-            for($i=0;$i<count($datosBD[0]);$i++){
-                if(null != $datosBD[0][$i]){
-                    array_push($lista,$datosBD[0][$i]);
-                }
+        $data = $result->fetch_array();
+        $datosBD = array();
+        array_push($datosBD, json_decode($data[0]));
+        $lista = array();
+
+        for($i=0;$i<count($datosBD[0]);$i++){
+            array_push($lista,$datosBD[0][$i]);
+        }
+ 
+        for($i=0;$i<count($lista);$i++){
+            if($lista[$i] == $id){
+                unset($lista[$i]);
             }
-        
-            if($option == 'add'){
-                for($i=0;$i<count($lista);$i++){
-                    if($id == $lista[$i]){
-                        return false;
-                    }
-                }
-                array_push($lista, $id);
-                $listJSON = json_encode($lista);
-                $consult = "update usuarios set listades='$listJSON' where "
-                        . "correo='$mail'";
-                if($result = $this->conexion->query($consult)){
-                    return true;
-                }else{
-                    return false;
-                }
-            }else if($option === 'del'){
-                array_push($lista, $id);
-                for($i=0;$i<count($lista);$i++){
-                    if($lista[$i] == $id){
-                        unset($lista[$i]);
-                    }
-                }
-                $listJSON = json_encode($lista, false);
-                $consult = "update usuarios set listades='$listJSON' where "
-                        . "correo='$mail'";
-                if($result = $this->conexion->query($consult)){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
+        }
+        $listJSON = json_encode(array_values($lista));
+        $consult = "update usuarios set listades='$listJSON' where "
+                . "correo='$mail'";
+        if($result = $this->conexion->query($consult)){
+            return true;
         }else{
-            $lista = array($id);
-            $listJSON = json_encode($lista, false);
-            $consult = "update usuarios set listades='$listJSON' where "
-                        . "correo='$mail'";
-            if($result = $this->conexion->query($consult)){
-                return true;
-            }else{
-                return false;
-            }
+            return false;
         }
     }
     

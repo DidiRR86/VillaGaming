@@ -69,10 +69,9 @@
     
     if($option === "addLike"){
         $id = $_REQUEST['id'];
-        $option2 = $_REQUEST['option2'];
         $mail = $_SESSION['mailUsu'];
         $init = new Conexiones();
-        if($init->modifiListaDeseosUser($id, $mail, $option2)){
+        if($init->addListaDeseos($id, $mail)){
             echo true;
         }else{
             echo false;
@@ -81,10 +80,15 @@
     
     if($option === "delLike"){
         $id = $_REQUEST['id'];
-        $option2 = $_REQUEST['option2'];
         $mail = $_SESSION['mailUsu'];
         $init = new Conexiones();
-        $init->modifiListaDeseosUser($id, $mail, $option2);
+        $init->delListaDeseos($id, $mail);
+        
+        if($init->delListaDeseos($id, $mail)){
+            header('Location: userproperties.php');
+        }else{
+            return "fallo";
+        }
     }
     
     if($option === "del"){
