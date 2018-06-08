@@ -145,6 +145,20 @@ class Conexiones {
         return $this->articulos;
     }
     
+    //Añadir compra al producto productos
+    function setPuPurchasesProduct($id){
+        $this->conect();
+        $consult = "select compras from productos where idproducto='$id'";
+        $result = $this->conexion->query($consult);
+        $compras =$result->fetch_array();
+        $compras[0] += 1;
+        
+        $consult = "update productos set compras='$compras[0]' where idproducto='$id'";
+        $result = $this->conexion->query($consult);
+        
+        $this->disconect();
+    }
+    
     //Sacar productos por la plataforma
     function getPlataformProduct($plataform){
         $this->conect();
@@ -171,7 +185,7 @@ class Conexiones {
     }
     
     //Sacar el numero de compras con el id del producto
-    function getPurchasesProduct(){
+    /**function getPurchasesProduct(){
         $this->conect();
         $consult = "select compras,idproducto from productos";
         $result = $this->conexion->query($consult);
@@ -180,37 +194,62 @@ class Conexiones {
         }
         $this->disconect();
         return $this->articulos;
-    }
+    }*/
     
     //Modificar la lista de deseos
     function modifiListaDeseosUser($id,$mail,$option){
         $this->conect();
         $consult = "select listades from usuarios where correo='$mail'";
         $result = $this->conexion->query($consult);
-        $data = $result->fetch_array();
         
-        $lista = json_decode($data);
-        
-        if($option === 'add'){
-            array_push($lista, $id);
-            $listJSON = json_encode($lista);
-            $consult = "update usuarios set listades='$listJSON' where "
-                    . "correo='$mail'";
-            if($result = $this->conexion->query($consult)){
-                return true;
-            }else{
-                return false;
-            }
-        }else if($option === 'del'){
-            array_push($lista, $id);
-            for($i=0;$i<$lista.length;$i++){
-                if($lista[$i] == $id){
-                    unset($lista[$i]);
+        if($result->num_rows > 0){
+            $data = $result->fetch_array();
+            $datosBD = array();
+            array_push($datosBD, json_decode($data[0], false));
+            $lista = array();
+            
+            for($i=0;$i<count($datosBD[0]);$i++){
+                if(null != $datosBD[0][$i]){
+                    array_push($lista,$datosBD[0][$i]);
                 }
             }
-            $listJSON = json_encode($lista);
+        
+            if($option == 'add'){
+                for($i=0;$i<count($lista);$i++){
+                    if($id == $lista[$i]){
+                        return false;
+                    }
+                }
+                array_push($lista, $id);
+                $listJSON = json_encode($lista);
+                $consult = "update usuarios set listades='$listJSON' where "
+                        . "correo='$mail'";
+                if($result = $this->conexion->query($consult)){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else if($option === 'del'){
+                array_push($lista, $id);
+                for($i=0;$i<count($lista);$i++){
+                    if($lista[$i] == $id){
+                        unset($lista[$i]);
+                    }
+                }
+                $listJSON = json_encode($lista, false);
+                $consult = "update usuarios set listades='$listJSON' where "
+                        . "correo='$mail'";
+                if($result = $this->conexion->query($consult)){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }else{
+            $lista = array($id);
+            $listJSON = json_encode($lista, false);
             $consult = "update usuarios set listades='$listJSON' where "
-                    . "correo='$mail'";
+                        . "correo='$mail'";
             if($result = $this->conexion->query($consult)){
                 return true;
             }else{
@@ -229,9 +268,32 @@ class Conexiones {
             return false;
         }else{
             $data = $result->fetch_array();
-            $lista = json_decode($data[0]);
+            $lista = json_decode($data[0], false);
             return $lista;
         }
+    }
+    
+    //Comprobar si esta el producto en la lista de deseos
+    function comprobarProduListaDeseos($id, $mail){
+        $this->conect();
+        $consult = "select listades from usuarios where correo='$mail'";
+        $result = $this->conexion->query($consult);
+        
+        $data = $result->fetch_array();
+        $datosBD = array();
+        array_push($datosBD, json_decode($data[0], false));
+        $lista = array();
+        $num = false;
+        
+        for($i=0;$i<count($datosBD[0]);$i++){
+            if(null != $datosBD[0][$i]){
+                if($datosBD[0][$i] == $id){
+                    $num = true;
+                }
+                array_push($lista,$datosBD[0][$i]);
+            }
+        }
+        return $num;
     }
     
     //Saca el ultimo número de pedido

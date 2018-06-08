@@ -67,6 +67,26 @@
         }
     }
     
+    if($option === "addLike"){
+        $id = $_REQUEST['id'];
+        $option2 = $_REQUEST['option2'];
+        $mail = $_SESSION['mailUsu'];
+        $init = new Conexiones();
+        if($init->modifiListaDeseosUser($id, $mail, $option2)){
+            echo true;
+        }else{
+            echo false;
+        }
+    }
+    
+    if($option === "delLike"){
+        $id = $_REQUEST['id'];
+        $option2 = $_REQUEST['option2'];
+        $mail = $_SESSION['mailUsu'];
+        $init = new Conexiones();
+        $init->modifiListaDeseosUser($id, $mail, $option2);
+    }
+    
     if($option === "del"){
         $id = $_REQUEST['delete'];
         unset($_SESSION['carrito'][$id]);
@@ -99,6 +119,7 @@
             $num = 0;
             foreach($carritoSesion as $arti){
                 $init->addNumGame($numGame[$num],$arti['idproducto'],(int)$numPedido[0]);
+                $init->setPuPurchasesProduct($arti['idproducto']);
                 $num++;
             }
             crearFactura($totalPrec, $carritoSesion,$numPedido, $pago, $datosUsu, $numGame);

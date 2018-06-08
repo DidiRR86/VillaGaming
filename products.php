@@ -7,75 +7,21 @@ session_start();
  */
 ?>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
-        <title>VillaGaming - Inicio</title>
-
-        <link rel="stylesheet" type="text/css" href="css/products.css"/>
-        <link rel="stylesheet" type="text/css" href="css/index.css" />  
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-        <link rel="stylesheet" href="materialize/css/materialize.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-         <header>
+<html>        
+    <header>
             <a title="Inicio" href="index.php"><img src="img/banner.png"></a>
-        </header>
-        <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">Steam</a></li>
-            <li><a href="#!">Origin</a></li>
-            <li><a href="#!">Uplay</a></li>
-            <li><a href="#!">Xbox</a></li>
-            <li><a href="#!">PlayStation</a></li>
-            <li><a href="#!">Nintendo</a></li>
-        </ul>
-        <ul id="dropdown2" class="dropdown-content">
-            <li><a href="#!">Accion</a></li>
-            <li><a href="#!">Arcade</a></li>
-            <li><a href="#!">Aventura</a></li>
-            <li><a href="#!">Carreras</a></li>
-            <li><a href="#!">Lucha</a></li>
-            <li><a href="#!">Deporte</a></li>
-            <li><a href="#!">Estrategia</a></li>
-            <li><a href="#!">Indi</a></li>
-            <li><a href="#!">Plataformas</a></li>
-        </ul>
-        <nav id="nav-bar" class="red lighten-2" style="width: 80%;margin: 0 auto;margin-top: 5%;">
-            <div class="nav-wrapper">
-                <ul class="left hide-on-med-and-down">
-                    <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">
-                            Plataforma<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li> <a class="dropdown-trigger" href="#!" data-target="dropdown2">
-                            Genero<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="dropdown-trigger" href="products.php">
-                            Productos</a></li>
-                </ul>
-                <ul class="right hide-on-med-and-down">
-                    <?php
-                    if (isset($_SESSION['loginUsu'])) {
-                        echo "<li>" . $_SESSION['loginUsu'] . "</li>";
-                        ?><li><a href='options.php?option=close' style="height: 64px;">
-                                <img src="img/buttons/salida.png" style="margin-top: 55%;"></a><li>
-                            <li><a href='vistacarro.php' style="height: 64px;">
-                                <img src="img/buttons/carro.png" style="margin-top: 55%;"></a></li>
-                            <?php
-                        } else {
-                            ?><li><a href='login.php'>Login</a></li>
-                        <li><a href="register.php">Resgistrarse</a></li>
-                        <?php
-                    }
-                    ?>  
-                </ul>
-                <ul class="center hide-on-med-and-down" style="margin-left: 40%;">
-                    <!-- Dropdown Trigger -->
-                    <li><input type="search" style="background-color: white;
-                               border-radius: 20px;
-                               width: 125%;" placeholder="Buscar" /></li>
-                </ul>
-            </div>
-        </nav>
+            <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+            <title>VillaGaming - Inicio</title>
+
+            <link rel="stylesheet" type="text/css" href="css/products.css"/>
+            <link rel="stylesheet" type="text/css" href="css/index.css" />  
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+            <link rel="stylesheet" href="materialize/css/materialize.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </header>
+    
+    <body>
+    <?php include("header.php");?>
 
         <?php
         require_once 'classes/conexiones.php';
@@ -111,28 +57,39 @@ session_start();
                 <!--        Modal para los articulos-->
                 <div id="modal<?php echo $filas['idproducto']; ?>" class="modal">
                     <div class="modal-content">
+                        <input id="idproducto" type="text" value="<?php echo $filas['idproducto']; ?>" style="display:none;" />
                         <h2 style="display: inline-block;"><?php echo $filas['nombre']; ?></h2>
                         
                         <h4 class="center"><u><?php echo $filas['precio'].'€'; ?></u></h4>
                         <div style="text-align:right;">
-                            <img src="img/buttons/like.png" class="left" style="background-color:red;">
-                                <?php 
-                                    if(isset($_SESSION['carrito'][$filas['idproducto']])){
-                                        ?>
-                                        <a class="waves-effect waves-light btn disabled" 
-                                        href="options.php?option=add&id=<?php echo $filas['idproducto']; ?>">
-                                        <i class="material-icons right">local_grocery_store</i>
-                                        Comprar</a>
-                                        <?php
-                                    }else{
-                                        ?>
-                                        <a class="waves-effect waves-light btn" 
-                                        href="options.php?option=add&id=<?php echo $filas['idproducto']; ?>">
-                                        <i class="material-icons right">local_grocery_store</i>
-                                        Comprar</a>
-                                        <?php
-                                    }
+                            <?php 
+                            if($dats->comprobarProduListaDeseos($filas['idproducto'],$_SESSION['mailUsu'])){
+                            ?>
+                                <img src="img/buttons/liked.png" class="left">
+                            <?php
+                            }else{
+                            ?>
+                                <a class="like" id="<?php echo $filas['idproducto']; ?>">
+                                <img src="img/buttons/like.png" class="left" 
+                                     style="background-color:red;"></a>
+                            <?php 
+                            }                                                          
+                            if(isset($_SESSION['carrito'][$filas['idproducto']])){
                                 ?>
+                                <a class="waves-effect waves-light btn disabled" 
+                                href="options.php?option=add&id=<?php echo $filas['idproducto']; ?>">
+                                <i class="material-icons right">local_grocery_store</i>
+                                Comprar</a>
+                                <?php
+                            }else{
+                                ?>
+                                <a class="waves-effect waves-light btn" 
+                                href="options.php?option=add&id=<?php echo $filas['idproducto']; ?>">
+                                <i class="material-icons right">local_grocery_store</i>
+                                Comprar</a>
+                                <?php
+                            }
+                            ?>
                         </div>
 
                         <p><?php echo $filas['descripcion']; ?></p>
@@ -148,15 +105,40 @@ session_start();
             }
             ?>
         </div>
-        <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="materialize/js/bin/materialize.js"></script>
+        <?php include("footer.php");?>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.modal').modal();
-                $(".dropdown-trigger").dropdown();
                 $('.materialboxed').materialbox();
-            });
+                $('.like').click(function(){
+                    if (window.XMLHttpRequest) {
+                        peticion_http=new XMLHttpRequest(); 
+                      } else if (window.ActiveXObject) {
+                        peticion_http=ActiveXObject("Microsoft.XMLHTTP"); 
+                      } 
 
+                    var id = $(this).attr('id');
+
+                    if(peticion_http) {
+                        peticion_http.onreadystatechange = function(){
+                            if(peticion_http.readyState == 4 && peticion_http.status == 200) {
+                                if(peticion_http.responseText){
+                                    M.toast({html: 'Agregado correctamente!'});
+                                }else{
+                                    M.toast({html: 'Fallo al agregar articulo!'});
+                                }
+                            }
+                        };
+                      peticion_http.open("POST", "options.php");
+
+                      //Meto cabeceras y cuerpo de la petición para enviar los datos del formulario 
+                      // que me interesa enviar. En este caso solo el login
+
+                      peticion_http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                      peticion_http.send("option=addLike&id="+id+"&option2=add");
+                    }    
+                });
+            });
         </script>
     </body>
 </html>
