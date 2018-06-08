@@ -39,7 +39,7 @@ body {
     background-position: 100% 100%;
 }
 header img {
-    background-color: black;
+
     height: 100%;
     width: 100%;
     border-top-left-radius: 16px;
@@ -50,4 +50,7 @@ header {
     height: 100%;
     max-height: 228px;
 }
->>>>>>> parent of ba28b61... Ya se eliminan productos de carro y no se permite comprar sin estar registrado
+footer{
+    margin-top: 5%;
+   
+}

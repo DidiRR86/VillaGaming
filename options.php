@@ -63,6 +63,36 @@
         header('location:vistacarro.php');
     }
     
+    if($option === "addLike"){
+        $id = $_REQUEST['id'];
+        $mail = $_SESSION['mailUsu'];
+        $init = new Conexiones();
+        if($init->addListaDeseos($id, $mail)){
+            echo true;
+        }else{
+            echo false;
+        }
+    }
+    
+    if($option === "delLike"){
+        $id = $_REQUEST['id'];
+        $mail = $_SESSION['mailUsu'];
+        $init = new Conexiones();
+        $init->delListaDeseos($id, $mail);
+        
+        if($init->delListaDeseos($id, $mail)){
+            header('Location: userproperties.php');
+        }else{
+            return "fallo";
+        }
+    }
+    
+    if($option === "del"){
+        $id = $_REQUEST['delete'];
+        unset($_SESSION['carrito'][$id]);
+        header('location:vistacarro.php'); 
+    }
+    
     if($option === "addPedido"){
         $totalPrec = $_REQUEST['prec'];
         $mail = $_SESSION['mailUsu'];
@@ -89,6 +119,7 @@
             $num = 0;
             foreach($carritoSesion as $arti){
                 $init->addNumGame($numGame[$num],$arti['idproducto'],(int)$numPedido[0]);
+                $init->setPuPurchasesProduct($arti['idproducto']);
                 $num++;
             }
             crearFactura($totalPrec, $carritoSesion,$numPedido, $pago, $datosUsu, $numGame);
