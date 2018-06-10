@@ -164,11 +164,15 @@ class Conexiones {
         $this->conect();
         $consult = "select * from productos where plataforma='$plataform'";
         $result = $this->conexion->query($consult);
-        while($fila = $result->fetch_array()){
-            array_push($this->articulos, $fila);
+        if($result->num_rows > 0){
+            while($fila = $result->fetch_array()){
+                array_push($this->articulos, $fila);
+            }
+            $this->disconect();
+            return $this->articulos;
+        }else{
+            return false;
         }
-        $this->disconect();
-        return $this->articulos;
     }
     
     //Sacar productos por el genero
@@ -176,12 +180,15 @@ class Conexiones {
         $this->conect();
         $consult = "select * from productos where genero='$gen'";
         $result = $this->conexion->query($consult);
-        while($fila = $result->fetch_array()){
-            array_push($this->articulos, $fila);
-        }
-        $this->disconect();
-        return $this->articulos;
-        
+        if($result->num_rows > 0){
+            while($fila = $result->fetch_array()){
+                array_push($this->articulos, $fila);
+            }
+            $this->disconect();
+            return $this->articulos;
+        }else{
+            return false;
+        }  
     }
     
     //Sacar el numero de compras con el id del producto
