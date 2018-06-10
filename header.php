@@ -1,22 +1,22 @@
 
         <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">Steam</a></li>
-            <li><a href="#!">Origin</a></li>
-            <li><a href="#!">Uplay</a></li>
-            <li><a href="#!">Xbox</a></li>
-            <li><a href="#!">PlayStation</a></li>
-            <li><a href="#!">Nintendo</a></li>
+            <li><a href="products.php?option=plataform&plat=Steam">Steam</a></li>
+            <li><a href="products.php?option=plataform&plat=Origin">Origin</a></li>
+            <li><a href="products.php?option=plataform&plat=Uplay">Uplay</a></li>
+            <li><a href="products.php?option=plataform&plat=Xbox">Xbox One</a></li>
+            <li><a href="products.php?option=plataform&plat=PS4">PlayStation 4</a></li>
+            <li><a href="products.php?option=plataform&plat=Nintendo Switch">Nintendo Switch</a></li>
         </ul>
         <ul id="dropdown2" class="dropdown-content">
-            <li><a href="#!">Accion</a></li>
-            <li><a href="#!">Arcade</a></li>
-            <li><a href="#!">Aventura</a></li>
-            <li><a href="#!">Carreras</a></li>
-            <li><a href="#!">Lucha</a></li>
-            <li><a href="#!">Deporte</a></li>
-            <li><a href="#!">Estrategia</a></li>
-            <li><a href="#!">Indi</a></li>
-            <li><a href="#!">Plataformas</a></li>
+            <li><a href="products.php?option=categorie&gen=accion">Accion</a></li>
+            <li><a href="products.php?option=categorie&gen=arcade">Arcade</a></li>
+            <li><a href="products.php?option=categorie&gen=aventura">Aventura</a></li>
+            <li><a href="products.php?option=categorie&gen=carreras">Carreras</a></li>
+            <li><a href="products.php?option=categorie&gen=lucha">Lucha</a></li>
+            <li><a href="products.php?option=categorie&gen=deporte">Deporte</a></li>
+            <li><a href="products.php?option=categorie&gen=estrategia">Estrategia</a></li>
+            <li><a href="products.php?option=categorie&gen=indi">Indi</a></li>
+            <li><a href="products.php?option=categorie&gen=plataformas">Plataformas</a></li>
         </ul>
         <nav id="nav-bar" class="orange darken-2" style="width: 80%;margin: 0 auto;margin-top: 5%;">
             <div class="nav-wrapper">
@@ -27,7 +27,7 @@
                             Plataforma<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li> <a class="dropdown-trigger" data-target="dropdown2">
                             Genero<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="dropdown-trigger" href="products.php">
+                    <li><a class="dropdown-trigger" href="products.php?option=all">
                             Productos</a></li>
                 </ul>
                 <ul class="right hide-on-med-and-down">

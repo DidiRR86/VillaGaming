@@ -27,11 +27,35 @@ session_start();
         require_once 'classes/conexiones.php';
 
         $dats = new Conexiones();
-
-        $products = $dats->getAllProducts();
+        
+        $option = $_REQUEST['option'];
+        $products = null;
+        $gen = null;
+        $plat = null;
+        if($option == 'all'){
+            $products = $dats->getAllProducts();
+        }else if($option == 'categorie'){
+            $gen = $_REQUEST['gen'];
+            $products = $dats->getGeneroProduct($gen);
+        }else if($option == 'plataform'){
+            $plat = $_REQUEST['plat'];
+            $products = $dats->getPlataformProduct($plat);
+        }
         ?>
+        <div class="container center" style="color:white;">
+            <?php 
+                if($option == 'all'){
+                    echo '<h2>Todos los productos</h2>';
+                }else if($option == 'categorie'){
+                    echo '<h2>Productos por genero: '.ucwords($gen).'</h2>';
+                }else{
+                    echo '<h2>Productos por plataforma: '.$plat.'</h2>';
+                }
+            ?>
+        </div>
         <div class="container" style="margin-top:3%;">
             <?php
+            if(null != $products){
             foreach ($products as $filas) {
                 ?>
                 <div class="card product hoverable">
@@ -46,7 +70,7 @@ session_start();
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">
-                            <?php echo $filas['nombre']; ?></span>
+                            <?php echo $filas['nombre']; ?><i class="material-icons right">close</i></span>
                         <p>
                             <?php
                             echo $filas['descripcion'];
@@ -59,6 +83,8 @@ session_start();
                     <div class="modal-content">
                         <input id="idproducto" type="text" value="<?php echo $filas['idproducto']; ?>" style="display:none;" />
                         <h2 style="display: inline-block;"><?php echo $filas['nombre']; ?></h2>
+                        
+                        <span class="right"><img src="img/buttons/<?php echo $filas['plataforma']; ?>.png"></span>
                         
                         <h4 class="center"><u><?php echo $filas['precio'].'€'; ?></u></h4>
                         <div style="text-align:right;">
@@ -108,6 +134,9 @@ session_start();
 
                 </div>
                 <?php
+            }
+            }else{
+                echo "No hay productos";
             }
             ?>
         </div>
