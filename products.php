@@ -84,6 +84,8 @@ session_start();
                         <input id="idproducto" type="text" value="<?php echo $filas['idproducto']; ?>" style="display:none;" />
                         <h2 style="display: inline-block;"><?php echo $filas['nombre']; ?></h2>
                         
+                        <span class="right"><img src="img/buttons/<?php echo $filas['plataforma']; ?>.png"></span>
+                        
                         <h4 class="center"><u><?php echo $filas['precio'].'€'; ?></u></h4>
                         <div style="text-align:right;">
                             <?php 
