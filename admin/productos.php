@@ -55,7 +55,7 @@
                     print('<td class="campoArticulo"><a href="'.$producto['youtube'].'" target="_blank"><button type="button">ver video</button></a></td>');
                     print('<td class="campoArticulo">'.$producto['compras'].'</td>');
                     print('<td class="campoArticulo">'.$producto['fechpubli'].'</td>');
-                    print('<td class="campoArticulo boton"><span>Modificar</span></td>');
+                    print('<td class="campoArticulo boton"><a href="admin-productos.php?accion=agregar"><span>Modificar</span></a></td>');
                     print('<td class="campoArticulo boton">
                             <a href="admin-productos.php?accion=eliminar&idproducto='.$producto['idproducto'].'">
                                 <span>Eliminar</span>

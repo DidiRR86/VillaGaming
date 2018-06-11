@@ -109,7 +109,7 @@
         print('<button type="button">
                 <a href="productos.php">Cancelar</a>
                </button>');
-        print('<input type="submit" value="Agregar"/>');
+        print('<input type="submit" value="Modificar"/>');
         print('</fieldset>');
         print('</form>');
         print('</div>');
