@@ -11,6 +11,11 @@
 <body class="admin">
     <?php
     include '../classes/admin-consultas.php';
+    session_start();
+    if(!isset($_SESSION["admin"])) {
+        header("location:../index.php");
+    }
+
     $accion = $_REQUEST['accion'];
 
     if($accion == "agregar") {

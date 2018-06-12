@@ -11,6 +11,10 @@
 <body class="admin">
     <?php
     include '../classes/admin-consultas.php';
+    session_start();
+    if(!isset($_SESSION["admin"])) {
+        header("location:../index.php");
+    }
     ?>
     <div id="lista-admin">
         <div id="opciones-admin">
