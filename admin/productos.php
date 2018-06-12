@@ -14,10 +14,16 @@
     ?>
     <div id="lista-admin">
         <div id="opciones-admin">
-            <span class="inverse">Artículos</span>
-            <span class="normal">Códigos Promoción</span>
-            <span class="normal">Usuarios</span>
             <?php
+            print('<a href="productos.php">
+                <span class="inverse">Artículos</span>
+            </a>');
+            print('<a href="codigosPromocion.php">
+                <span class="normal">Códigos Promoción</span>
+            </a>');
+            print('<a href="usuarios.php">
+                <span class="normal">Usuarios</span>
+            </a>');
             print('<a href="admin-productos.php?accion=agregar">
                 <span class="normal">Agregar</span>
             </a>');
@@ -55,7 +61,8 @@
                     print('<td class="campoArticulo"><a href="'.$producto['youtube'].'" target="_blank"><button type="button">ver video</button></a></td>');
                     print('<td class="campoArticulo">'.$producto['compras'].'</td>');
                     print('<td class="campoArticulo">'.$producto['fechpubli'].'</td>');
-                    print('<td class="campoArticulo boton"><span>Modificar</span></td>');
+                    print('<td class="campoArticulo boton"><a href="admin-productos.php?accion=modificar&idproducto='.$producto['idproducto'].'">
+                            <span>Modificar</span></a></td>');
                     print('<td class="campoArticulo boton">
                             <a href="admin-productos.php?accion=eliminar&idproducto='.$producto['idproducto'].'">
                                 <span>Eliminar</span>
