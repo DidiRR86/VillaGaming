@@ -30,7 +30,7 @@
                 </div>
                 <div class="input-field col s6">
                     <input type="password" class="validate" name="pass">
-                  <label>Correo</label>
+                  <label>Contraseña</label>
                 </div>
               </div>
               <button class="btn waves-effect waves-light red lighten-2" type="submit" 
