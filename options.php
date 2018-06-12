@@ -59,9 +59,9 @@
         $surnames = $_REQUEST['surname'];
         $birthDate = $_REQUEST['birthdate'];
         
-        $register = new Conexiones();
+        $update = new Conexiones();
         
-        if($register->modifyPerfilUser($nick, $mail, $pass, $name, $surnames,$birthDate)){
+        if($update->modifyPerfilUser($nick, $mail, $pass, $name, $surnames, $birthDate)){
            
             echo '<script type="text/javascript">alert("Actualizado '
                 . 'correctamente!!");window.location="index.php";</script>';
