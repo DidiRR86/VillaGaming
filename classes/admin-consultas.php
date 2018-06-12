@@ -1,4 +1,3 @@
-<<<<<<< HEAD:classes/admin-consultas.php
 <?php
 class Consultas
 {
