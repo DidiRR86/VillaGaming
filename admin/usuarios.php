@@ -14,12 +14,15 @@
     ?>
     <div id="lista-admin">
         <div id="opciones-admin">
-            <span class="inverse">Artículos</span>
-            <span class="normal">Códigos Promoción</span>
-            <span class="normal">Usuarios</span>
             <?php
-            print('<a href="admin-productos.php?accion=agregar">
-                <span class="normal">Agregar</span>
+            print('<a href="productos.php">
+                <span class="normal">Artículos</span>
+            </a>');
+            print('<a href="codigosPromocion.php">
+                <span class="normal">Códigos Promoción</span>
+            </a>');
+            print('<a href="usuarios.php">
+                <span class="inverse">Usuarios</span>
             </a>');
             ?>
         </div>
@@ -27,38 +30,26 @@
             <legend>Inventario</legend>
             <table id="articulos-admin">
                 <tr>
-                    <th class="campoArticulo">Imagen</th>
-                    <th class="campoArticulo">ID</th>
+                    <th class="campoArticulo">Nick</th>
+                    <th class="campoArticulo">Correo</th>
                     <th class="campoArticulo">Nombre</th>
-                    <th class="campoArticulo">Precio</th>
-                    <th class="campoArticulo">Plataforma</th>
-                    <th class="campoArticulo">Género</th>
-                    <th class="campoArticulo">YouTube</th>
-                    <th class="campoArticulo">Compras</th>
-                    <th class="campoArticulo">Fecha Publicación</th>
-                    <th class="campoArticulo" colspan="2">Opciones</th>
+                    <th class="campoArticulo">Apellidos</th>
+                    <th class="campoArticulo">Fecha Nacimiento</th>
+                    <th class="campoArticulo">Opciones</th>
                 </tr>
                 <?php
                 $consulta = new Consultas();
-                $productos = array();
-                $productos = $consulta->mostrarTodos();
+                $usuarios = array();
+                $usuarios = $consulta->mostrarTodosUsuarios();
 
-                foreach($productos as $producto) {
-                    print('<tr><td class="campoArticulo imagen"><img src="../'.$producto['imagen'].'"></td>');
-                    print('<td class="campoArticulo">'.$producto['idproducto'].'</td>');
-                    print('<td class="campoArticulo">'.$producto['nombre'].'</td>');
-                    /*print('<td class="campoArticulo">'.$producto['descripcion'].'</td>');*/
-                    print('<td class="campoArticulo">'.$producto['precio'].' €</td>');
-                    /*print('<td class="campoArticulo">'.$producto['requisitos'].'</td>');*/
-                    print('<td class="campoArticulo">'.$producto['plataforma'].'</td>');
-                    print('<td class="campoArticulo">'.$producto['genero'].'</td>');
-                    print('<td class="campoArticulo"><a href="'.$producto['youtube'].'" target="_blank"><button type="button">ver video</button></a></td>');
-                    print('<td class="campoArticulo">'.$producto['compras'].'</td>');
-                    print('<td class="campoArticulo">'.$producto['fechpubli'].'</td>');
-                    print('<td class="campoArticulo boton"><a href="admin-productos.php?accion=modificar&idproducto='.$producto['idproducto'].'">
-                            <span>Modificar</span></a></td>');
+                foreach($usuarios as $usuario) {
+                    print('<tr><td class="campoArticulo">'.$usuario['nick'].'</td>');
+                    print('<td class="campoArticulo">'.$usuario['correo'].'</td>');
+                    print('<td class="campoArticulo">'.$usuario['nombre'].'</td>');
+                    print('<td class="campoArticulo">'.$usuario['apellidos'].'</td>');
+                    print('<td class="campoArticulo">'.$usuario['fechnac'].'</td>');
                     print('<td class="campoArticulo boton">
-                            <a href="admin-productos.php?accion=eliminar&idproducto='.$producto['idproducto'].'">
+                            <a href="admin-usuarios.php?correo='.$usuario['correo'].'">
                                 <span>Eliminar</span>
                             </a></td></tr>');
                 }

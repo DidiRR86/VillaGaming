@@ -16,55 +16,37 @@
         <div id="opciones-admin">
             <?php
             print('<a href="productos.php">
-                <span class="inverse">Artículos</span>
+                <span class="normal">Artículos</span>
             </a>');
-            print('<a href="codigoPromocion.php">
-                <span class="normal">Códigos Promoción</span>
+            print('<a href="codigosPromocion.php">
+                <span class="inverse">Códigos Promoción</span>
             </a>');
             print('<a href="usuarios.php">
                 <span class="normal">Usuarios</span>
             </a>');
-            print('<a href="admin-productos.php?accion=agregar">
+            print('<a href="admin-codigosPromocion.php?accion=agregar">
                 <span class="normal">Agregar</span>
             </a>');
             ?>
         </div>
         <fieldset>
-            <legend>Inventario</legend>
+            <legend>Códigos de promoción</legend>
             <table id="articulos-admin">
                 <tr>
-                    <th class="campoArticulo">Imagen</th>
-                    <th class="campoArticulo">ID</th>
-                    <th class="campoArticulo">Nombre</th>
-                    <th class="campoArticulo">Precio</th>
-                    <th class="campoArticulo">Plataforma</th>
-                    <th class="campoArticulo">Género</th>
-                    <th class="campoArticulo">YouTube</th>
-                    <th class="campoArticulo">Compras</th>
-                    <th class="campoArticulo">Fecha Publicación</th>
-                    <th class="campoArticulo" colspan="2">Opciones</th>
+                    <th class="campoArticulo">Código</th>
+                    <th class="campoArticulo">Valor</th>
+                    <th class="campoArticulo" style="width: 20%">Opciones</th>
                 </tr>
                 <?php
                 $consulta = new Consultas();
-                $productos = array();
-                $productos = $consulta->mostrarTodos();
+                $codigosPromocion = array();
+                $codigosPromocion = $consulta->mostrarTodosCodigosPromocion();
 
-                foreach($productos as $producto) {
-                    print('<tr><td class="campoArticulo imagen"><img src="../'.$producto['imagen'].'"></td>');
-                    print('<td class="campoArticulo">'.$producto['idproducto'].'</td>');
-                    print('<td class="campoArticulo">'.$producto['nombre'].'</td>');
-                    /*print('<td class="campoArticulo">'.$producto['descripcion'].'</td>');*/
-                    print('<td class="campoArticulo">'.$producto['precio'].' €</td>');
-                    /*print('<td class="campoArticulo">'.$producto['requisitos'].'</td>');*/
-                    print('<td class="campoArticulo">'.$producto['plataforma'].'</td>');
-                    print('<td class="campoArticulo">'.$producto['genero'].'</td>');
-                    print('<td class="campoArticulo"><a href="'.$producto['youtube'].'" target="_blank"><button type="button">ver video</button></a></td>');
-                    print('<td class="campoArticulo">'.$producto['compras'].'</td>');
-                    print('<td class="campoArticulo">'.$producto['fechpubli'].'</td>');
-                    print('<td class="campoArticulo boton"><a href="admin-productos.php?accion=modificar&idproducto='.$producto['idproducto'].'">
-                            <span>Modificar</span></a></td>');
+                foreach($codigosPromocion as $codigoPromocion) {
+                    print('<td class="campoArticulo">'.$codigoPromocion['codigo'].'</td>');
+                    print('<td class="campoArticulo">'.$codigoPromocion['valor'].' €</td>');
                     print('<td class="campoArticulo boton">
-                            <a href="admin-productos.php?accion=eliminar&idproducto='.$producto['idproducto'].'">
+                            <a href="admin-codigosPromocion.php?accion=eliminar&codigo='.$codigoPromocion['codigo'].'">
                                 <span>Eliminar</span>
                             </a></td></tr>');
                 }
