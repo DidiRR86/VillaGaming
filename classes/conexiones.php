@@ -386,4 +386,18 @@ class Conexiones {
         return $resultado[0];
     }
     
+    //Para verificar el codigo de promocion
+    function checkCodigoPromocion($text){
+        $this->conect();
+        $consult = "select * from codpromo where codigo='$text'";
+        $result = $this->conexion->query($consult);
+                
+        if($result->num_rows != 0){
+            return $result->fetch_array();
+        }else{
+            return false;
+        }
+        $this->disconect();
+    }
+    
 }

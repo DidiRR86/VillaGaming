@@ -115,6 +115,28 @@
         header('location:vistacarro.php'); 
     }
     
+    if($option === "codPromo"){
+        $cod = $_REQUEST['CodPromocional'];
+        $init = new Conexiones();
+        
+        $final = $init->checkCodigoPromocion($cod);
+        if(false != $final){
+            if(isset($_SESSION['codpromocion'])){
+                header("Location: vistacarro.php");
+            }else{
+                 $_SESSION['codpromocion'] = $final;
+                header("Location: vistacarro.php");
+            }
+        }else{
+            header('Location: vistacarro.php');
+        }
+    }
+    
+    if($option === "delCodPromo"){
+        unset($_SESSION['codpromocion']);
+        header("Location: vistacarro.php");
+    }
+    
     if($option === "addPedido"){
         $totalPrec = $_REQUEST['prec'];
         $mail = $_SESSION['mailUsu'];

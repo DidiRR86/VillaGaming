@@ -21,15 +21,17 @@ if (isset($_SESSION['loginAdmin'])) {
 
         <div class="container center" style="color: white;">
                 <?php
+                
                 if(isset($_SESSION['carrito'])){
                     if(count($_SESSION['carrito']) > 0){
                         $precioTotal = 0;
                     ?>
+                    <form action="options.php?option=codPromo" method="get">
                         <table class="responsive-table">
                             <thead>
                               <tr>
                                   <th>Nombre</th>
-                                  <th>Precio</th>
+                                  <th colspan="2">Precio</th>
                               </tr>
                             </thead>
 
@@ -47,17 +49,63 @@ if (isset($_SESSION['loginAdmin'])) {
                               </tr>
                     <?php
                         }
-                    ?>
-                              <tr>
-                                  <td></td>
-                                <th>Precio Total</th>
-                              </tr>
-                              <tr>
+                            if(isset($_SESSION['codpromocion'])){
+                                ?>
+                            <tr>
                                 <td></td>
-                                <td colspan="2"><?php echo $precioTotal; ?></td>
-                              </tr>
-                            </tbody>
-                        </table>
+                                <th colspan="2">Descuento código promocional</th>
+                            </tr>
+                            <tr>
+                            <tr>
+                              <td></td>
+                              <td>
+                              <?php 
+                              $descuento = ($precioTotal*$_SESSION['codpromocion']['valor'])/100;
+                              echo $descuento;?>
+                              € (<?php echo $_SESSION['codpromocion']['valor']; ?> %)
+                              </td>
+                              <td><a href="options.php?option=delCodPromo">
+                                 <i class="small material-icons">clear</i></a></td>
+                            </tr>
+                                <?php
+                            }
+                            ?>
+                            <tr>
+                                <td></td>
+                              <th>Precio Total</th>
+                            </tr>
+                            <?php 
+                                if(isset($_SESSION['codpromocion'])){
+                            ?>
+                            <tr>
+                              <td></td>
+                              <td colspan="2"><?php echo $precioTotal-$descuento; ?></td>
+                            </tr>
+                            <?php 
+                                }else{
+                                ?>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2"><?php echo $precioTotal; ?></td>
+                                </tr>
+                                <?php
+                                }
+                            ?>
+                                <td>Código Promocional&nbsp;&nbsp;
+                                        <input style="width:30%;" type="text" 
+                                        required name="CodPromocional">
+                                </td>
+                                <td class="left">
+                                  <button class="btn waves-effect waves-light right" 
+                                      type="submit" 
+                                      name="action">Aplicar
+                                  </button>
+                                </td>
+                                <td></td>
+                            </tr>
+                          </tbody>
+                      </table>
+                    </form>
             <span class="center"><h4>Opciones de pago</h4></span>
             <form action="options.php?option=addPedido&prec=<?php echo $precioTotal; ?>" method="post">
                 <table>

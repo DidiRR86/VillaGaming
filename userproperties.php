@@ -92,7 +92,7 @@ if (isset($_SESSION['loginAdmin'])) {
                                 </div>
                                 <div class="input-field col s6">
                                     <input type="email" class="validate" name="mail"
-                                        readonly="readonly" value="<?php echo $user['correo'];?>">
+                                        id="disabled" value="<?php echo $user['correo'];?>">
                                     <label>Correo</label>
                                 </div>
                             </div>
