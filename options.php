@@ -28,9 +28,6 @@
         $pass = $_REQUEST['pass'];
         $name = $_REQUEST['name'];
         $surnames = $_REQUEST['surname'];
-        $address = $_REQUEST['address'];
-        $location = $_REQUEST['location'];
-        $cp = $_REQUEST['cp'];
         $birthDate = $_REQUEST['birthdate'];
         
         $date = new DateTime($birthDate);
@@ -50,6 +47,28 @@
         }else{
             echo '<script type="text/javascript">alert("Email ya registrado!")'
             . ';window.location="login.php";</script>';
+        }
+ 
+    }
+    
+    if($option === "update"){
+        $nick = $_REQUEST['user'];
+        $mail = $_REQUEST['mail'];
+        $pass = $_REQUEST['pass'];
+        $name = $_REQUEST['name'];
+        $surnames = $_REQUEST['surname'];
+        $birthDate = $_REQUEST['birthdate'];
+        
+        $register = new Conexiones();
+        
+        if($register->modifyPerfilUser($nick, $mail, $pass, $name, $surnames,$birthDate)){
+           
+            echo '<script type="text/javascript">alert("Actualizado '
+                . 'correctamente!!");window.location="index.php";</script>';
+            
+        }else{
+            echo '<script type="text/javascript">alert("Algo ha fallado en el '
+                . 'registro, vuelve a intentarlo");window.location="userproperties.php";</script>';
         }
  
     }
@@ -82,7 +101,6 @@
         $id = $_REQUEST['id'];
         $mail = $_SESSION['mailUsu'];
         $init = new Conexiones();
-        $init->delListaDeseos($id, $mail);
         
         if($init->delListaDeseos($id, $mail)){
             header('Location: userproperties.php');
@@ -105,7 +123,6 @@
         $carritoSesion = $_SESSION['carrito'];
         
         $init = new Conexiones();
-        $datosUsu = $init->getUser($mail);
         
         $numGame = [];
         $correctNumGame = true;
@@ -118,7 +135,7 @@
             array_push($numGame, $num);
         }
                
-        if(true){
+        if($init->initPedidos($mail)){
             $numPedido = $init->numPedido();
             $num = 0;
             foreach($carritoSesion as $arti){
@@ -132,7 +149,7 @@
                 echo '<script type="text/javascript">alert("¡Fallo al realizar la compra!");window.location="index.php";</script>';
         }
     }
-	function crearFactura($totalPrecio, $carritoSesion, $numPedido, $pago, $datosUsu, $numGame){
+	function crearFactura($totalPrecio, $carritoSesion, $numPedido, $pago, $numGame){
 		
 		include('pdf/fpdf.php');
 		$pdf = new FPDF();
@@ -154,7 +171,7 @@
                 $num = 0;
                     foreach($carritoSesion as $produ){
                         $pdf->Cell(100,10,$produ['nombre']);
-                        $pdf->Cell(40,10,$produ['precio']);
+                        $pdf->Cell(40,10,$produ['precio']." ".chr(128));
                         $pdf->Cell(10,10,$numGame[$num]);
                         $pdf->Ln(8);
                         $num++;    
@@ -164,19 +181,6 @@
 		$pdf->Cell(100,10,'Direccion de envio');
 		$pdf->SetFont('Arial','I',13);
                 $pdf->Ln(13);
-                
-                //DIreccion de envio
-                $pdf->Cell(10,5,$datosUsu['nombre']);
-                $pdf->Cell(3,8," ");
-                $pdf->Cell(10,5,$datosUsu['apellidos']);
-                $pdf->Ln(2);
-                $pdf->Cell(10,15,$datosUsu['direccion']);
-                $pdf->Cell(3,8," ");
-                $pdf->Ln(2);
-                $pdf->Cell(10,25,$datosUsu['localidad']);
-                $pdf->Cell(15,8," ");
-                $pdf->Cell(10,25,$datosUsu['cp']);
-                $pdf->Ln(5);
                 
                 //Metodo de pago
                 if($pago === "tarjeta"){
@@ -200,14 +204,14 @@
 		$pdf->Cell(10,8,"Todos los derechos reservados");
 		
                 $directFactu = 'facturas/Factura'.$numPedido[0].'.pdf'; 
-//              $init = new Conexiones(); 
-//                $init->addPdfDirect($directFactu,$numPedido[0]); 
+                $init = new Conexiones(); 
+                $init->addPdfDirect($directFactu,$numPedido[0]); 
                 
                 //I -> Para ver sin guardar.
                 //F -> Para guardar directamente
-		$pdf->Output('I',$directFactu);	
+		$pdf->Output('F',$directFactu);	
 		
-//                unset($_SESSION['carrito']);
+               unset($_SESSION['carrito']);
 	}
         
         function generateNumGame(){

@@ -70,13 +70,12 @@ class Conexiones {
     
     //Funcion para añadir un nuevo usuario. **Posible incorporacion de enviar
     //un correo cuando se ha registrado**
-    function registerUser($nick,$correo,$pass,$name,$surnames,$address,
-            $location,$cp,$birthDate){
+    function registerUser($nick,$correo,$pass,$name,$surnames,$birthDate){
         $this->conect();
         $consult = "insert into usuarios(nick,correo,contrasena,"
-                . "nombre,apellidos,direccion,localidad,cp,"
+                . "nombre,apellidos,"
                 . "fechnac) values ('$nick','$correo','$pass','$name',"
-                . "'$surnames','$address','$location','$cp','$birthDate')";
+                . "'$surnames','$birthDate')";
         
         if($result = $this->conexion->query($consult)){
             return true;
@@ -87,12 +86,10 @@ class Conexiones {
     }
     
     //Modificar datos de usuario
-    function modifyPerfilUser($nick,$mail,$name,$surnames,$address,
-            $location,$cp,$birthDate){
+    function modifyPerfilUser($nick,$mail,$pass,$name,$surnames,$birthDate){
         $this->conect();
-        $consult = "update usuarios set nick='$nick', name='$nombre',"
-                . "apellidos='$surnames',direccion='$address',"
-                . "localidad='$location',cp='$cp',fechnac='$birthDate'"
+        $consult = "update usuarios set nick='$nick', contrasena='$pass', nombre='$name',"
+                . "apellidos='$surnames',fechnac='$birthDate'"
                 . " where correo='$mail'";
         if($result = $this->conexion->query($consult)){
             return true;
@@ -101,16 +98,6 @@ class Conexiones {
         }
     }
     
-    //Modificar configuracion de usuario
-    function modifyMailUser($newMail, $oldMail){
-        $this->conect();
-        $consult = "update usuarios set correo='$newMail' where correo='$oldMail'";
-        if($result = $this->conexion->query($consult)){
-            return true;
-        }else{
-            return false;
-        }
-    }
 
     //Para sacar la informacion del usuario.
     function getUser($mail){
@@ -301,6 +288,23 @@ class Conexiones {
             }
         }
         return $num;
+    }
+    
+    //Sacar los pedidos del usuario
+    function getPedidosUser($mail){
+        $this->conect();
+        $consult = "select * from pedidos where correo='$mail'";
+        $result = $this->conexion->query($consult);
+        
+        if($result->num_rows == 0){
+            return false;
+        }else{
+            while($fila = $result->fetch_array()){
+                array_push($this->articulos, $fila);
+            }
+            $this->disconect();
+            return $this->articulos;
+        }
     }
     
     //Saca el ultimo número de pedido

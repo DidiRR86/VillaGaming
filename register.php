@@ -44,25 +44,9 @@ if (isset($_SESSION['loginAdmin'])) {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                             <input type="password" class="validate" name="pass">
                             <label>Contraseña</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input type="text" class="validate" name="address">
-                            <label>Direccion</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input type="text" class="validate" name="location">
-                            <label>Localidad</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input type="text" class="validate" name="cp">
-                            <label>Codigo Postal</label>
                         </div>
                         <div class="input-field col s6">
                             <input type="text" class="datepicker" name="birthdate">
