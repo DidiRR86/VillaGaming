@@ -1,10 +1,9 @@
 <?php
 include "../classes/admin-consultas.php";
-/*session_start();
-
+session_start();
 if(!isset($_SESSION["admin"])) {
-    header("location:index.php");
-}*/
+    header("location:../index.php");
+}
 
 $nombre = $_REQUEST["nombre"];
 $descripcion = $_REQUEST["descripcion"];
