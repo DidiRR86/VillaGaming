@@ -26,7 +26,7 @@ if (isset($_SESSION['loginAdmin'])) {
                     if(count($_SESSION['carrito']) > 0){
                         $precioTotal = 0;
                     ?>
-                    <form action="options.php?option=codPromo" method="get">
+                    <form action="options.php?option=codPromo" method="POST">
                         <table class="responsive-table">
                             <thead>
                               <tr>
@@ -149,3 +149,4 @@ if (isset($_SESSION['loginAdmin'])) {
         <?php include("footer.php");?>
     </body>
 </html>
+

@@ -23,3 +23,12 @@ header {
 footer{
     margin-top: 5%;
 }
+
+#text-card{
+  width:306px;
+  height:69px;
+  padding:20px;
+  text-overflow:ellipsis;
+  white-space:nowrap; 
+  overflow:hidden; 
+}

@@ -38,21 +38,30 @@ if (isset($_SESSION['loginAdmin'])) {
                 </li>
             </ul>
         </div>
-        <div class="carousel container carousel-slider center" style="width:30%;">
+        <h2 class="container center" style="color:white;margin-top: 4%;">Top Ventas</h2>
+        <div class="center" style="width:auto;margin: 0 auto;margin-top: 3%;">
             <?php 
             include_once 'classes/conexiones.php';
             $con = new Conexiones();
-            
+            $num = 1;
             $datos = $con->cincoMasVendidos();
             foreach ($datos as $d){
             ?>
-            <div class="carousel-item white-text" 
-                 href="products.php?option=one&id=<?php echo $d['idproducto']; ?>"
-                 style="background-image: url(<?php echo $d['imagen']; ?>);
-                 background-repeat: no-repeat, repeat;">
-              <h2><?php echo $d['nombre']; ?></h2>
-              <p class="white-text"><?php echo $d['precio']; ?></p>
-            </div>
+            <div class="card product hoverable" style="display:inline-block;width:17%;">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img width="650" src="<?php echo $d['imagen']; ?>">
+                </div>
+                <div id="text-card" class="card-content">
+                    <a class="card-title activator grey-text text-darken-4">
+                        <?php echo "<strong>".$num; 
+                        $num++; 
+                        echo "º</strong> - ";
+                        echo $d['nombre']; ?></a>
+                </div>
+                <div class="card-action">
+                    <strong><?php echo $d['precio']; ?> €</strong>
+                </div>
+                </div>
             <?php
             }
             ?>
@@ -67,6 +76,5 @@ if (isset($_SESSION['loginAdmin'])) {
                   });
             });
         </script>
-
     </body>
 </html>

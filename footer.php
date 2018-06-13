@@ -18,8 +18,7 @@
         $('#busqueda').focus();
         $('#busqueda').on('keyup',function(){
             var se = $('#busqueda').val();
-            console.log(se);
-            if(se.length != 0){
+            if(se.length !== 0){
                 $.ajax({
                 type:'POST',
                 url:'search.php',
