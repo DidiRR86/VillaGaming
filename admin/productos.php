@@ -31,6 +31,9 @@
             print('<a href="admin-productos.php?accion=agregar">
                 <span class="normal">Agregar</span>
             </a>');
+            print('<a href="admin-logout.php">
+                <span class="normal">Salir</span>
+            </a>');
             ?>
         </div>
         <fieldset>
