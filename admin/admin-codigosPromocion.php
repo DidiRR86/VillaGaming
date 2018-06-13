@@ -30,7 +30,7 @@
         print('<tr><td class="nombreArticulo">Código</td>');
         print('<td class="campoArticulo"><input type="text" name="codigo" required/></td></tr>');
         print('<tr><td class="nombreArticulo">Valor</td>');
-        print('<td class="campoArticulo"><input type="text" name="valor" required/><span>€ (Euros)</span></td></tr>');
+        print('<td class="campoArticulo"><input type="text" name="valor" required/><span>%</span></td></tr>');
         print('<tr><td class="nombreArticulo">Descripcion</td>');
         print('<td class="campoArticulo"><textarea rows="4" cols="50" name="descripcion" required>Descripción del código de promoción</textarea></td></tr>');
         print('</table>');
