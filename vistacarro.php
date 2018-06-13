@@ -9,7 +9,7 @@ if (isset($_SESSION['loginAdmin'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
         <title>VillaGaming - Inicio</title>
         <link rel="stylesheet" type="text/css" href="css/global.css" /> 
         <link rel="stylesheet" href="materialize/css/materialize.css">

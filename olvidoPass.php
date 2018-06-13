@@ -12,7 +12,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
         <title>VillaGaming - Login</title>
         <link rel="stylesheet" type="text/css" href="css/olvidoPass.css">
         <link rel="stylesheet" type="text/css" href="css/index.css" /> 

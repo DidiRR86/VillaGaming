@@ -8,10 +8,10 @@ if (isset($_SESSION['loginAdmin'])) {
 <!DOCTYPE html>
 <html>
     <header>
-        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
         <title>VillaGaming - Inicio</title>
         <a title="Inicio" href="index.php"><img src="img/banner.png"></a>
-       <link rel="stylesheet" type="text/css" href="css/index.css" /> 
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" href="materialize/css/materialize.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
