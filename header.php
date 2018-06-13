@@ -1,8 +1,6 @@
 
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="products.php?option=plataform&plat=Steam">Steam</a></li>
-            <li><a href="products.php?option=plataform&plat=Origin">Origin</a></li>
-            <li><a href="products.php?option=plataform&plat=Uplay">Uplay</a></li>
             <li><a href="products.php?option=plataform&plat=Xbox">Xbox One</a></li>
             <li><a href="products.php?option=plataform&plat=PS4">PlayStation 4</a></li>
             <li><a href="products.php?option=plataform&plat=Nintendo Switch">Nintendo Switch</a></li>
