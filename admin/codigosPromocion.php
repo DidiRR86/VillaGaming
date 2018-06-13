@@ -1,7 +1,7 @@
 <!DOCTIPE html>
 <html>
 <head>
-    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
     <title>VillaGaming - Administrador - Inventario</title>
     <link rel="stylesheet" type="text/css" href="../css/global.css">
     <link rel="stylesheet" type="text/css" href="../css/admin-list.css">
