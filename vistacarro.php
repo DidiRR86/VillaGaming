@@ -7,7 +7,7 @@ if (isset($_SESSION['loginAdmin'])) {
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
+    <header>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
         <title>VillaGaming - Inicio</title>
         <a title="Inicio" href="index.php"><img src="img/banner.png"></a>
@@ -16,7 +16,7 @@ if (isset($_SESSION['loginAdmin'])) {
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    </head>
+    </header>
     <body>
 <?php include("header.php");?>
 
