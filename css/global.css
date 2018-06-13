@@ -10,3 +10,7 @@ a:link {
     z-index: 3;
     border: 0 !important;
 }
+
+.nav-wrapper .center.hide-on-med-and-down li input {
+    padding-left: 20px;
+}
