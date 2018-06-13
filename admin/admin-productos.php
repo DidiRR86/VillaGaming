@@ -30,11 +30,18 @@
         print('<tr><td class="nombreArticulo">Nombre</td>');
         print('<td class="campoArticulo"><input type="text" name="nombre" required/></td></tr>');
         print('<tr><td class="nombreArticulo">Descripcion</td>');
-        print('<td class="campoArticulo"><textarea rows="4" cols="50" name="descripcion" required>Descripción del producto</textarea></td></tr>');
+        print('<td class="campoArticulo"><textarea rows="4" cols="50" name="descripcion" required></textarea></td></tr>');
         print('<tr><td class="nombreArticulo">Precio</td>');
         print('<td class="campoArticulo"><input type="text" name="precio" required/><span>€ (Euros)</span></td></tr>');
         print('<tr><td class="nombreArticulo">Requisitos</td>');
-        print('<td class="campoArticulo"><textarea rows="4" cols="50" name="requisitos" required>Requisitos del producto</textarea></td></tr>');
+        print('<td class="campoArticulo"><textarea rows="4" cols="50" name="requisitos" required><table>
+                    <tr>
+                        <td>Memoria RAM: </td>
+                        <td>Tarjeta grafica: </td>
+                        <td>Disco duro: </td>
+                        <td>Procesador: </td>
+                    </tr>
+                </table></textarea></td></tr>');
         print('<tr><td class="nombreArticulo">Plataforma</td>');
         print('<td class="campoArticulo">
                     <select name="plataforma" required>

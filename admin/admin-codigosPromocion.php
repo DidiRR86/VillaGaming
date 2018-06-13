@@ -36,7 +36,7 @@
         print('</table>');
         print('<div id="agregar-options">');
         print('<button type="button">
-                <a href="productos.php">Cancelar</a>
+                <a href="codigosPromocion.php">Cancelar</a>
                </button>');
         print('<input type="submit" value="Agregar"/>');
         print('</fieldset>');
