@@ -25,8 +25,16 @@ footer{
 }
 
 #text-card{
-  width:306px;
+  width:280px;
   height:69px;
+  padding:20px;
+  text-overflow:ellipsis;
+  white-space:nowrap; 
+  overflow:hidden; 
+}
+#text-card2{
+  width:260px;
+  height:110px;
   padding:20px;
   text-overflow:ellipsis;
   white-space:nowrap; 

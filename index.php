@@ -49,10 +49,13 @@ if (isset($_SESSION['loginAdmin'])) {
             ?>
             <div class="card product hoverable" style="display:inline-block;width:17%;">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img width="650" src="<?php echo $d['imagen']; ?>">
+                    <a href="products.php?option=one&id=<?php echo $d['idproducto']; ?>">
+                        <img width="650" src="<?php echo $d['imagen']; ?>">
+                    </a>
                 </div>
                 <div id="text-card" class="card-content">
-                    <a class="card-title activator grey-text text-darken-4">
+                    <a href="products.php?option=one&id=<?php echo $d['idproducto']; ?>"
+                        class="card-title activator grey-text text-darken-4">
                         <?php echo "<strong>".$num; 
                         $num++; 
                         echo "º</strong> - ";

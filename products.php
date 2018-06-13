@@ -70,7 +70,7 @@ session_start();
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" width="650" src="<?php echo $filas['imagen']; ?>">
                             </div>
-                            <div class="card-content">
+                            <div id="text-card2" class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">
                                     <?php echo $filas['nombre']; ?></span>
                                 <p> <a class="waves-effect waves-light btn modal-trigger" 
@@ -138,6 +138,9 @@ session_start();
                                     <iframe width="560" height="315" src="<?php echo $filas['youtube']; ?>" 
                                             frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                 </div>
+                                <div class="container" style="margin-top:3%;">
+                                    <?php echo $filas['requisitos']; ?>
+                                </div>
                             </div>
 
                         </div>
@@ -149,7 +152,7 @@ session_start();
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" width="650" src="<?php echo $products['imagen']; ?>">
                             </div>
-                            <div class="card-content">
+                            <div id="text-card2" class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">
                                     <?php echo $products['nombre']; ?></span>
                                 <p> <a class="waves-effect waves-light btn modal-trigger" 

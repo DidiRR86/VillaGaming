@@ -10,6 +10,7 @@ if (isset($_SESSION['loginAdmin'])) {
     <head>
         <meta charset="UTF-8"/>
         <title>VillaGaming - Inicio</title>
+        <a title="Inicio" href="index.php"><img src="img/banner.png"></a>
         <link rel="stylesheet" type="text/css" href="css/index.css" /> 
         <link rel="stylesheet" href="materialize/css/materialize.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
