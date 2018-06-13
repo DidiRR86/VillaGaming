@@ -17,6 +17,9 @@
     }
 
     ?>
+    <div id="admin-header">
+        <span>VillaGaming BackOffice</span>
+    </div>
     <div id="lista-admin">
         <div id="opciones-admin">
             <?php
