@@ -9,6 +9,9 @@
     <script src="../js/admin-list.js" type="text/javascript"></script>
 </head>
 <body class="admin">
+    <div id="admin-header">
+        <span>VillaGaming BackOffice</span>
+    </div>
     <?php
     include '../classes/admin-consultas.php';
     session_start();
@@ -119,8 +122,7 @@
         print('<td class="campoArticulo"><input type="date" name="fechpubli" value="'.$producto["fechpubli"].'" required/></td></tr>');
         print('<tr><td class="nombreArticulo">Portada</td>');
         print('<td class="campoArticulo">
-            <img src="../'.$producto["imagen"].'"></br></br>
-            <input type="file" name="imagen"/></td></tr>');
+            <img src="../'.$producto["imagen"].'"></tr>');
         print('</table>');
         print('<div id="agregar-options">');
         print('<button type="button">
