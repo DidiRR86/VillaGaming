@@ -6,6 +6,10 @@ a:link {
     text-decoration:none;
 }
 
+footer{
+    margin-top: 5%;
+}
+
 .collection {
     z-index: 3;
     border: 0 !important;
