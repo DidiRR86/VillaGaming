@@ -37,6 +37,7 @@
         print('<td class="campoArticulo"><textarea rows="4" cols="50" name="requisitos" required><table>
                     <tr>
                         <td>Memoria RAM: </td>
+                       </tr>
                         <td>Tarjeta grafica: </td>
                         <td>Disco duro: </td>
                         <td>Procesador: </td>
