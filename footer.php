@@ -15,7 +15,27 @@
 <script type="text/javascript" src="materialize/js/bin/materialize.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $(".dropdown-trigger").dropdown();
+        $('#busqueda').focus();
+        $('#busqueda').on('keyup',function(){
+            var se = $('#busqueda').val();
+            console.log(se);
+            if(se.length != 0){
+                $.ajax({
+                type:'POST',
+                url:'search.php',
+                data:{'search':se}
+                }).done(function(resultado){
+                    $('#result').html(resultado);
+                }).fail(function(){
+                    alert("Hubo un error");
+                })
+            }else{
+                $('#result').html("");
+            }
+            
+            
+        });
+        $('.dropdown-trigger').dropdown();
     });
 </script>
 

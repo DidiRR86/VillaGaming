@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['loginAdmin'])) {
-    header('Location:admin/admin.php');
+    header('Location:admin/productos.php');
 }
 ?>
 <!DOCTYPE html>

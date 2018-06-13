@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 #lista-admin legend,
 #lista-admin #opciones-admin span,
 #lista-admin #articulos-admin th.campoArticulo,
@@ -87,13 +87,6 @@
     font-size: 13px;
     font-weight: 700;
     color: #ffffff;
-=======
-#lista-admin legend,
-#lista-admin #opciones-admin span,
-#lista-admin #articulos-admin th.campoArticulo,
-#lista-admin #articulos-admin td.campoArticulo {
-    font-family: proxima-nova,arial,sans-serif;
-}
 
 #lista-admin {
     width: 30%;
@@ -177,5 +170,5 @@
     font-size: 13px;
     font-weight: 700;
     color: #ffffff;
->>>>>>> parent of ba28b61... Ya se eliminan productos de carro y no se permite comprar sin estar registrado
+}
 }

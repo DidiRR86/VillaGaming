@@ -47,12 +47,16 @@
                     }
                     ?>  
                 </ul>
-                <ul class="center hide-on-med-and-down" style="margin-left: 40%;">
+                <ul class="center hide-on-med-and-down" style="margin-left: 45%;">
                     <!-- Dropdown Trigger -->
                     <li><input type="search" style="background-color: white;
                                border-radius: 20px;
-                               width: 125%;" placeholder="Buscar" /></li>
+                               width: 125%;"
+                               id="busqueda" placeholder="Buscar" /></li>
                 </ul>
             </div>
         </nav>
-
+<div id="result" class="collection" 
+                    style="width: auto;
+                    position: absolute;
+                    margin-left: 44%;"></div>
