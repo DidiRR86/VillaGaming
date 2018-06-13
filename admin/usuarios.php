@@ -28,7 +28,9 @@
             print('<a href="usuarios.php">
                 <span class="inverse">Usuarios</span>
             </a>');
-            ?>
+            print('<a href="admin-logout.php">
+                <span class="normal">Salir</span>
+            </a>');            ?>
         </div>
         <fieldset>
             <legend>Inventario</legend>
