@@ -46,6 +46,7 @@
                 <tr>
                     <th class="campoArticulo">Código</th>
                     <th class="campoArticulo">Valor</th>
+                    <th class="campoArticulo">Descripción</th>
                     <th class="campoArticulo" style="width: 20%">Opciones</th>
                 </tr>
                 <?php
@@ -55,7 +56,8 @@
 
                 foreach($codigosPromocion as $codigoPromocion) {
                     print('<td class="campoArticulo">'.$codigoPromocion['codigo'].'</td>');
-                    print('<td class="campoArticulo">'.$codigoPromocion['valor'].' €</td>');
+                    print('<td class="campoArticulo">'.$codigoPromocion['valor'].' %</td>');
+                    print('<td class="campoArticulo">'.$codigoPromocion['descripcion'].'</td>');
                     print('<td class="campoArticulo boton">
                             <a href="admin-codigosPromocion.php?accion=eliminar&codigo='.$codigoPromocion['codigo'].'">
                                 <span>Eliminar</span>
