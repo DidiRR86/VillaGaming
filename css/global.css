@@ -5,3 +5,8 @@ legend, span, th, td {
 a:link {
     text-decoration:none;
 }
+
+.collection {
+    z-index: 3;
+    border: 0 !important;
+}
