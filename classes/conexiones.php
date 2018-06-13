@@ -400,4 +400,20 @@ class Conexiones {
         $this->disconect();
     }
     
+    function cincoMasVendidos(){
+        $this->conect();
+        $consult = "SELECT * FROM productos ORDER BY compras DESC limit 4";
+        $result = $this->conexion->query($consult);
+                
+        if($result->num_rows == 0){
+            return false;
+        }else{
+            while($fila = $result->fetch_array()){
+                array_push($this->articulos, $fila);
+            }
+            $this->disconect();
+            return $this->articulos;
+        }
+        $this->disconect();
+    }
 }

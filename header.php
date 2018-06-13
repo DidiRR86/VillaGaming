@@ -59,4 +59,4 @@
 <div id="result" class="collection" 
                     style="width: auto;
                     position: absolute;
-                    margin-left: 44%;"></div>
+                    margin-left: 47%;"></div>

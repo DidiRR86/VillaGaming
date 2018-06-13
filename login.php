@@ -21,7 +21,7 @@
 <body>
     <?php include("header.php");?>
     
-    <div id="lista-admin" style="color: white;">
+    <div id="lista-admin" class="white-text">
         <div class="row">
             <form class="col s12" method="post" action="options.php?option=log">
               <div class="row">

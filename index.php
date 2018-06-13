@@ -37,10 +37,33 @@ if (isset($_SESSION['loginAdmin'])) {
                 </li>
             </ul>
         </div>
+        <div class="carousel container carousel-slider center" style="width:30%;">
+            <?php 
+            include_once 'classes/conexiones.php';
+            $con = new Conexiones();
+            
+            $datos = $con->cincoMasVendidos();
+            foreach ($datos as $d){
+            ?>
+            <div class="carousel-item white-text" 
+                 href="products.php?option=one&id=<?php echo $d['idproducto']; ?>"
+                 style="background-image: url(<?php echo $d['imagen']; ?>);
+                 background-repeat: no-repeat, repeat;">
+              <h2><?php echo $d['nombre']; ?></h2>
+              <p class="white-text"><?php echo $d['precio']; ?></p>
+            </div>
+            <?php
+            }
+            ?>
+        </div>
         <?php include("footer.php");?>
         <script type="text/javascript">
             $(function () {
                 $('.slider').slider();
+                $('.carousel.carousel-slider').carousel({
+                    fullWidth: true,
+                    indicators: true
+                  });
             });
         </script>
 
