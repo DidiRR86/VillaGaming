@@ -14,6 +14,7 @@ if (isset($_SESSION['loginAdmin'])) {
         <title>VillaGaming - Inicio</title>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" href="materialize/css/materialize.css">
+        <link rel="stylesheet" type="text/css" href="css/global.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -29,13 +30,13 @@ if (isset($_SESSION['loginAdmin'])) {
         
 
         ?>
-        <div class="container" style="margin-top: 3%;">
+        <div class="container" style="margin-top: 3%;margin-bottom: 25%;">
             <ul id="tabs-swipe-demo" class="tabs">
                 <li class="tab col s3"><a href="#test-swipe-1">Lista de deseos</a></li>
                 <li class="tab col s3"><a href="#test-swipe-2">Pedidos</a></li>
                 <li class="tab col s3"><a href="#test-swipe-3">Modificar datos</a></li>
             </ul>
-            <div id="test-swipe-1" class="col s12">
+            <div id="test-swipe-1" class="col s12 white">
                 <?php 
                 if(!$nums){
                     echo "No hay lista";
@@ -61,7 +62,7 @@ if (isset($_SESSION['loginAdmin'])) {
                 }
                ?>
             </div>
-            <div id="test-swipe-2" class="col s12">
+            <div id="test-swipe-2" class="col s12 white">
                 <?php
                     if(!$pedidos){
                         echo "Aún no hay pedidos";
@@ -81,8 +82,7 @@ if (isset($_SESSION['loginAdmin'])) {
                     }
                 ?>
             </div>
-            <div id="test-swipe-3" class="col s12">
-                <div id="lista-admin">
+            <div id="test-swipe-3" class="col s12 white" style="padding: 20px;">
                     <div class="row">
                         <form class="col s12" method="post" action="options.php?option=update">
                             <div class="row">
@@ -122,7 +122,7 @@ if (isset($_SESSION['loginAdmin'])) {
                             </button>
                         </form>
                     </div>
-                </div>
+                
                 
             </div>
         </div>
