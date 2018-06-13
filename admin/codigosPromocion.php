@@ -17,6 +17,9 @@
     }
 
     ?>
+    <div id="admin-header">
+        <span>VillaGaming BackOffice</span>
+    </div>
     <div id="lista-admin">
         <div id="opciones-admin">
             <?php
@@ -31,6 +34,9 @@
             </a>');
             print('<a href="admin-codigosPromocion.php?accion=agregar">
                 <span class="normal">Agregar</span>
+            </a>');
+            print('<a href="admin-logout.php">
+                <span class="normal">Salir</span>
             </a>');
             ?>
         </div>

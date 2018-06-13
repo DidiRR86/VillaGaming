@@ -16,6 +16,9 @@
         header("location:../index.php");
     }
     ?>
+    <div id="admin-header">
+        <span>VillaGaming BackOffice</span>
+    </div>
     <div id="lista-admin">
         <div id="opciones-admin">
             <?php
@@ -28,7 +31,9 @@
             print('<a href="usuarios.php">
                 <span class="inverse">Usuarios</span>
             </a>');
-            ?>
+            print('<a href="admin-logout.php">
+                <span class="normal">Salir</span>
+            </a>');            ?>
         </div>
         <fieldset>
             <legend>Inventario</legend>

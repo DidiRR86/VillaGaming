@@ -9,6 +9,9 @@
     <script src="../js/admin-list.js" type="text/javascript"></script>
 </head>
 <body class="admin">
+    <div id="admin-header">
+        <span>VillaGaming BackOffice</span>
+    </div>
     <?php
     include '../classes/admin-consultas.php';
     session_start();
