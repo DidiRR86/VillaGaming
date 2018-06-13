@@ -12,7 +12,7 @@
     <?php
     include '../classes/admin-consultas.php';
     session_start();
-    if(!isset($_SESSION["admin"])) {
+    if(!isset($_SESSION["loginAdmin"])) {
         header("location:../index.php");
     }
     ?>
