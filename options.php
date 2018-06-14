@@ -39,8 +39,7 @@
             if($register->registerUser($nick, $mail, $pass, $name, $surnames,$dateBD)){
             echo '<script type="text/javascript">alert("Registro completado '
                 . 'correctamente!!")</script>';
-            header('Location: password.php?option=bienvenida&correo=$mail');
-                
+            header('Location: password.php?option=bienvenida&correo='.$mail.'');                
             }else{
                 echo '<script type="text/javascript">alert("Algo ha fallado en el '
                 . 'registro, vuelve a intentarlo");window.location="register.php";</script>';
