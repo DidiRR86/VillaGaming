@@ -40,7 +40,7 @@
                 <i class="material-icons right">send</i>
               </button>
                 &nbsp;&nbsp; <a href="register.php">¿Aún no estas registrado?</a><br /><br />
-                    <a href="#">¿Has olvidado la contraseña?</a>
+                <a href="olvidoPass.php">¿Has olvidado la contraseña?</a>
             </form>
         </div>
     </div>

@@ -178,18 +178,6 @@ class Conexiones {
         }  
     }
     
-    //Sacar el numero de compras con el id del producto
-    /**function getPurchasesProduct(){
-        $this->conect();
-        $consult = "select compras,idproducto from productos";
-        $result = $this->conexion->query($consult);
-        while($fila = $result->fetch_array()){
-            array_push($this->articulos, $fila);
-        }
-        $this->disconect();
-        return $this->articulos;
-    }*/
-    
     //Modificar la lista de deseos
     function addListaDeseos($id,$mail){
         $this->conect();

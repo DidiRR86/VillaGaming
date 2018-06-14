@@ -36,10 +36,11 @@
         $register = new Conexiones();
         
         if(!$register->checkUser($mail)){
-            if($register->registerUser($nick, $mail, $pass, $name, $surnames,
-                $address, $location, $cp,$dateBD)){
+            if($register->registerUser($nick, $mail, $pass, $name, $surnames,$dateBD)){
             echo '<script type="text/javascript">alert("Registro completado '
-                . 'correctamente!!");window.location="index.php";</script>';
+                . 'correctamente!!")</script>';
+            header('Location: password.php?option=bienvenida&correo=$mail');
+                
             }else{
                 echo '<script type="text/javascript">alert("Algo ha fallado en el '
                 . 'registro, vuelve a intentarlo");window.location="register.php";</script>';
@@ -167,7 +168,7 @@
                 echo '<script type="text/javascript">alert("¡Fallo al realizar la compra!");window.location="index.php";</script>';
         }
     }
-	function crearFactura($totalPrecio, $carritoSesion, $numPedido, $pago, $numGame){
+	function crearFactura($totalPrecio, $carritoSesion, $numPedido, $pago, $numGame, $mail){
 		
 		include('pdf/fpdf.php');
 		$pdf = new FPDF();
@@ -227,7 +228,9 @@
                 
                 //I -> Para ver sin guardar.
                 //F -> Para guardar directamente
-		$pdf->Output('F',$directFactu);	
+		$pdf->Output('F',$directFactu);
+                
+                header('Location: password.php?option=compra&correo='.$_SESSION['mailUsu'].'&factu='.$directFactu.'');
 		
                unset($_SESSION['carrito']);
 	}
