@@ -54,12 +54,18 @@
          
         $mail->Body = $body; // Mensaje a enviar. $exito = $mail->Send(); // Envía el correo. 
         if($mail -> send()){  
-            echo '<script type="text/javascript">alert("Correo enviado '
-                . 'correctamente!!");window.location="index.php";</script>'; 
+            if($option == "recupass"){
+                echo '<script type="text/javascript">alert("Correo enviado '
+                . 'correctamente!!");window.location="index.php";</script>';
+            }
+             
  
         } else {  
-            echo '<script type="text/javascript">alert("Fallo en el envio del mail'
-                . '");window.location="olvidoPass.php";</script>'; 
+            if($option == "recupass"){
+                echo '<script type="text/javascript">alert("Fallo en el envio del mail'
+                . '");window.location="olvidoPass.php";</script>';
+            }
+             
         }  
     } else { 
         echo '<script type="text/javascript">alert("No se ha encontrado'
