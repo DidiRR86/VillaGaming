@@ -19,7 +19,7 @@
         $correo = $_REQUEST['correo'];
         $titulo = "Bienvenido a VillaGaming";
         $body = "De parte de todo el equipo de VillaGaming, queriamos darte la bienvenida a esta nuestra familia.<br>"
-                . "Espero que estemos en relación dure muchos años, y que si surge algun problema pueda contar con nosotros.<br>"
+                . "Espero que esta relación dure muchos años, y que si surge algun problema pueda contar con nosotros.<br>"
                 . "<br>Un saludo del equipo de VillaGaming.";
     }else if($option== "compra"){
         $correo = $_REQUEST['correo'];
