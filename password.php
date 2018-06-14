@@ -57,6 +57,12 @@
             if($option == "recupass"){
                 echo '<script type="text/javascript">alert("Correo enviado '
                 . 'correctamente!!");window.location="index.php";</script>';
+            }else if($option == "compra"){
+                echo '<script type="text/javascript">alert("¡El pedido se ha '
+                . 'realizado correctamente!");window.location="index.php";</script>';
+            }else if($option == "bienvenida"){
+                echo '<script type="text/javascript">alert("¡Registrado correctamente'
+                . '");window.location="login.php";</script>';
             }
              
  
@@ -64,6 +70,9 @@
             if($option == "recupass"){
                 echo '<script type="text/javascript">alert("Fallo en el envio del mail'
                 . '");window.location="olvidoPass.php";</script>';
+            }else if($option == "compra"){
+                echo '<script type="text/javascript">alert("¡fallo en el pedido'
+                . '");window.location="index.php";</script>';
             }
              
         }  

@@ -37,8 +37,6 @@
         
         if(!$register->checkUser($mail)){
             if($register->registerUser($nick, $mail, $pass, $name, $surnames,$dateBD)){
-            echo '<script type="text/javascript">alert("Registro completado '
-                . 'correctamente!!")</script>';
             header('Location: password.php?option=bienvenida&correo='.$mail.'');                
             }else{
                 echo '<script type="text/javascript">alert("Algo ha fallado en el '
@@ -163,7 +161,7 @@
             }
             print_r($numGame);
             crearFactura($totalPrec, $carritoSesion,$numPedido, $pago, $numGame);
-                echo '<script type="text/javascript">alert("¡El pedido se ha realizado correctamente!");window.location="index.php";</script>';
+                
         }else{
                 echo '<script type="text/javascript">alert("¡Fallo al realizar la compra!");window.location="index.php";</script>';
         }
